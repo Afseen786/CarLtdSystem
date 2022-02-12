@@ -6,4 +6,9 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CarLtdClasses\CarLtdClasses.csproj" />
+    <ProjectReference Include="..\CarLtdTesting\CarLtdTesting.csproj" />
+  </ItemGroup>
+
 </Project>
