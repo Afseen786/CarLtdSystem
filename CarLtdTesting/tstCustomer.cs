@@ -12,7 +12,7 @@ namespace CarLtdTesting
         [TestMethod]
         public void InstanceOK()
         {
-            //create an instance of the class to create 
+            //create an instance of the class to createss 
             clsCustomer ACustomer = new clsCustomer();
             //test to see that it exists
             Assert.IsNotNull(ACustomer);
