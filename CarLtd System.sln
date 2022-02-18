@@ -8,7 +8,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CarLtdFrontOffice", "CarLtdFrontOffice\", "{69DCE5E6-1C56-41FD-B4FD-34A6BD361461}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
-		ProjectReferences = "{ceb2f395-dc26-4835-9b2f-88b852fb3835}|CarLtdClasses.dll;{217839b5-240f-4742-8c22-5afd9bac608f}|CarLtdTesting.dll;{2711a204-8b93-46aa-9bbc-08a25a6b8676}|CarLtdBackOffice.dll;"
+		ProjectReferences = "{ceb2f395-dc26-4835-9b2f-88b852fb3835}|CarLtdClasses.dll;{217839b5-240f-4742-8c22-5afd9bac608f}|CarLtdTesting.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_1027"
 		Debug.AspNetCompiler.PhysicalPath = "CarLtdFrontOffice\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1027\"

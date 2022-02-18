@@ -14,11 +14,45 @@ public partial class ACustomer : System.Web.UI.Page
         //create a new instance of clscustomer
         clsCustomer ACustomer = new clsCustomer();
         //capture the first name 
-        ACustomer.FirstName = txtFirstName.Text;
-        //store the customer in the session object
-        Session["ACustomer"] = ACustomer;
-        //redirect to the viewer page 
-        Response.Redirect("CustomerViewer.aspx");
+        string FirstName = txtFirstName.Text;
+        //capture the first name 
+        string LastName = txtLastName.Text;
+        //capture the date of birth
+        string DateOfBirth = txtDateOfBirth.Text;
+        //capture the address 
+        string Address = txtAddress.Text;
+        //capture the postcode 
+        string PostCode = txtPostCode.Text;
+        //capture the phone number
+        string PhoneNumber = txtPhoneNumber.Text;
+        //variable to store any error messages
+        string Error = "";
+        //validate the data 
+        Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
+        if (Error == "")
+        {
+            //capture the first name 
+            ACustomer.FirstName = txtFirstName.Text;
+            //capture the last name 
+            ACustomer.LastName = txtLastName.Text;
+            //capture the date of birth 
+            ACustomer.DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text);
+            //capture the address 
+            ACustomer.Address = txtAddress.Text;
+            //capture the postcode
+            ACustomer.PostCode = txtPostCode.Text;
+            //capture the phone number
+            ACustomer.PhoneNumber = txtPhoneNumber.Text;
+            //store the customer in the session object
+            Session["ACustomer"] = ACustomer;
+            //redirect to the viewer page 
+            Response.Redirect("CustomerViewer.aspx");
+        }
+        else
+        {
+            //display the error message 
+            lblError.Text = Error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
