@@ -194,13 +194,13 @@ namespace CarLtdClasses
                     if (DateTemp < DateTime.Now.Date)
                     {
                         //record the error
-                        Error = Error + "The date cannot be in the past : ";
+                        Error = Error + "The dateofbirth cannot be in the past : ";
                     }
                     //check to see if the date is greater than today's date
                     if (DateTemp > DateTime.Now.Date)
                     {
                         //record the error
-                        Error = Error + "The date cannot be in the future : ";
+                        Error = Error + "The dateofbirth cannot be in the future : ";
                     }
                 }
                 catch
