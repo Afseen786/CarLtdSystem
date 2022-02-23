@@ -14,6 +14,7 @@ namespace CarLtdTesting
             clsOrder AnOrder = new clsOrder();
             Assert.IsNotNull(AnOrder);
         }
+
         [TestMethod]
         public void ActivePropertyOK()
         {
@@ -26,6 +27,7 @@ namespace CarLtdTesting
             //test to see that the two values are the same
             Assert.AreEqual(AnOrder.Active, TestData);
         }
+
         [TestMethod]
         public void OrderDatePropertyOK()
         {
@@ -38,6 +40,7 @@ namespace CarLtdTesting
             //test to see that the two values are the same
             Assert.AreEqual(AnOrder.OrderDate, TestData);
         }
+
         [TestMethod]
         public void OrderNoPropertyOK()
         {
@@ -50,37 +53,40 @@ namespace CarLtdTesting
             //test to see that the two values are the same
             Assert.AreEqual(AnOrder.OrderNo, TestData);
         }
+
         [TestMethod]
         public void OrderNamePropertyOK()
         {
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
             //create some test data to assign to the property
-            string TestData = "ishvone";
+            string TestData = "Ishvone";
             //assign the data to the property
             AnOrder.OrderName = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(AnOrder.OrderName, TestData);
         }
+
         [TestMethod]
         public void OrderStatusPropertyOK()
         {
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
             //create some test data to assign to the property
-            string TestData = "ishvone";
+            string TestData = "Ishvone";
             //assign the data to the property
             AnOrder.OrderStatus = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(AnOrder.OrderStatus, TestData);
         }
+
         [TestMethod]
         public void BillingAddressPropertyOK()
         {
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
             //create some test data to assign to the property
-            string TestData = "ishvone";
+            string TestData = "Ishvone";
             //assign the data to the property
             AnOrder.BillingAddress = TestData;
             //test to see that the two values are the same
