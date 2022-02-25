@@ -11,21 +11,21 @@ public partial class Order : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //create a new instance of clsOrder
-        clsOrder Order = new clsOrder();
+        clsOrder AnOrder = new clsOrder();
         //get the data from the session object
-        Order = (clsOrder)Session["AnOrder"];
+        AnOrder = (clsOrder)Session["AnOrder"];
         //display the order number for this entry
-        Response.Write(Order.OrderNo);
+        Response.Write(AnOrder.OrderNo);
     }
 
-    protected void btnOK_Click(object sender, EventArgs e)
+    protected void btnFindOrders_Click(object sender, EventArgs e)
     {
         //create an instance of clsOrder
-        clsOrder Order = new clsOrder();
+        clsOrder AnOrder = new clsOrder();
         //capture the Order no
-        Order.OrderNo = int.Parse(txtOrderNo.Text);
+        AnOrder.OrderNo = Int32.Parse(txtOrderNo.Text);
         //store the order in the session object
-        Session["Order"] = Order;
+        Session["AnOrder"] = AnOrder;
         //redirect to the viewer page
         Response.Redirect("OrderViewer.aspx");
     }

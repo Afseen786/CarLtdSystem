@@ -16,7 +16,7 @@
         <div>
         </div>
         <asp:Label ID="lblOrderNo" runat="server" Text="OrderNo"></asp:Label>
-        <asp:TextBox ID="txtOrderNo" runat="server" style="margin-left: 40px"></asp:TextBox>
+        <asp:TextBox ID="txtOrderNo" runat="server" style="margin-left: 39px"></asp:TextBox>
         <br />
         <br />
         <asp:Label ID="lblOrderName" runat="server" Text="OrderName"></asp:Label>
@@ -38,8 +38,7 @@
         <asp:CheckBox ID="Active" runat="server" />
         <br />
         <br />
-        <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" Width="60px" />
-        <asp:Button ID="btnCancel" runat="server" style="margin-left: 20px" Text="Cancel" Width="60px" />
+        <asp:Button ID="btnFindOrders" runat="server" OnClick="btnFindOrders_Click" Text="Find Orders" Width="90px" />
         <br />
     </form>
 </body>
