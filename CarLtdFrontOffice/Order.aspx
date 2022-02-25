@@ -16,15 +16,15 @@
         <div>
         </div>
         <asp:Label ID="lblOrderNo" runat="server" Text="OrderNo"></asp:Label>
-        <asp:TextBox ID="txtOrderNo" runat="server" style="margin-left: 41px"></asp:TextBox>
+        <asp:TextBox ID="txtOrderNo" runat="server" style="margin-left: 40px"></asp:TextBox>
         <br />
         <br />
         <asp:Label ID="lblOrderName" runat="server" Text="OrderName"></asp:Label>
-        <asp:TextBox ID="txtOrderName" runat="server" style="margin-left: 23px"></asp:TextBox>
+        <asp:TextBox ID="txtOrderName" runat="server" style="margin-left: 23px; margin-bottom: 0px;"></asp:TextBox>
         <br />
         <br />
         <asp:Label ID="lblOrderStatus" runat="server" Text="OrderStatus"></asp:Label>
-        <asp:TextBox ID="txtOrderStatus" runat="server" style="margin-left: 22px"></asp:TextBox>
+        <asp:TextBox ID="txtOrderStatus" runat="server" style="margin-left: 22px; margin-bottom: 0px;"></asp:TextBox>
         <br />
         <br />
         <asp:Label ID="lblOrderDate" runat="server" Text="OrderDate"></asp:Label>
