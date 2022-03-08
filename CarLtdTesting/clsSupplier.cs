@@ -1,0 +1,6 @@
+﻿namespace CarLtdTesting
+{
+    class clsSupplier
+    {
+    }
+}
