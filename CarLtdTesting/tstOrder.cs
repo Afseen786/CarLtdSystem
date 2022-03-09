@@ -92,5 +92,19 @@ namespace CarLtdTesting
             //test to see that the two values are the same
             Assert.AreEqual(AnOrder.BillingAddress, TestData);
         }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //create some test data to assign to the property
+            int TestData = 1;
+            Boolean OK;
+            //assign the data to the property
+            OK = AnOrder.Find(TestData);
+            //test to see that the two values are the same
+            Assert.IsTrue(OK);
+        }
     }
 }

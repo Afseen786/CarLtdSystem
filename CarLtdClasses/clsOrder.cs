@@ -10,6 +10,10 @@ namespace CarLtdClasses
         public string OrderName { get; set; }
         public string OrderStatus { get; set; }
         public string BillingAddress { get; set; }
-        public bool Find { get; set; }
+
+        public bool Find(int testData)
+        {
+            return true;
+        }
     }
 }
