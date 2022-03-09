@@ -54,6 +54,7 @@
     <Compile Include="tstCustomerCollection.cs" />
     <Compile Include="tstOrder.cs" />
     <Compile Include="tstStaff.cs" />
+    <Compile Include="tstSupplier.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
