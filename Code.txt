@@ -1,0 +1,71 @@
+        //Testing for FindMethod
+[TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //create some test data to assign to the property
+            int TestData = 1;
+            Boolean OK;
+            //assign the data to the property
+            OK = AnOrder.Find(TestData);
+            //test to see that the two values are the same
+            Assert.IsTrue(OK);
+        }
+    }
+
+
+
+
+
+//clsOrder
+using System;
+
+namespace CarLtdClasses
+{
+    public class clsOrder
+    {
+        public bool Active { get; set; }
+        public DateTime OrderDate { get; set; }
+        public int OrderNo { get; set; }
+        public string OrderName { get; set; }
+        public string OrderStatus { get; set; }
+        public string BillingAddress { get; set; }
+
+        public bool Find(int testData)
+        {
+            return true;
+        }
+    }
+}
+
+
+
+
+
+
+//FindOrders function
+    protected void btnFindOrders_Click(object sender, EventArgs e)
+    {
+
+        //create an instance of the Orders class
+        clsOrder AnOrder = new clsOrder();
+        //variable to store the primary key
+        Int32 OrderNo;
+        //variable to store the result of the find operation
+        Boolean Found = false;
+        //get the primary key entered by the user
+        OrderNo = Convert.ToInt32(txtOrderNo.Text);
+        //find the record
+        Found = AnOrder.Find(OrderNo);
+        //if found
+        if (Found == true)
+        {
+            //display the values of the properties in the form
+            txtOrderNo.Text = AnOrder.OrderNo.ToString();
+            txtOrderName.Text = AnOrder.OrderName;
+            txtOrderStatus.Text = AnOrder.OrderStatus;
+            txtOrderDate.Text = AnOrder.OrderDate.ToString();
+            txtBillingAddress.Text = AnOrder.BillingAddress.ToString();
+        }
+    }
