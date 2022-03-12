@@ -5,12 +5,12 @@ namespace CarLtdClasses
 {
     public class clsOrder
     {
-        public bool Active { get; set; }
-        public DateTime OrderDate { get; set; }
-        public int OrderNo { get; set; }
-        public string OrderName { get; set; }
-        public string OrderStatus { get; set; }
-        public string BillingAddress { get; set; }
+        public int mOrderNo { get; set; }
+        public string mOrderName { get; set; }
+        public string mOrderStatus { get; set; }
+        public DateTime mOrderDate { get; set; }
+        public string mBillingAddress { get; set; }
+        public bool mActive { get; set; }
 
         public bool Find(int OrderNo)
         {
