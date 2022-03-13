@@ -85,7 +85,7 @@ namespace CarLtdTesting
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
             //create some test data to assign to the property
-            string TestData = "Ishvone";
+            string TestData = "ORD999";
             //assign the data to the property
             AnOrder.OrderName = TestData;
             //test to see that the two values are the same
@@ -102,11 +102,11 @@ namespace CarLtdTesting
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderNo = 18;
+            Int32 OrderNo = 10;
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the property
-            if (AnOrder.OrderStatus != "Test Street")
+            if (AnOrder.OrderStatus != "SHIPPED")
             {
                 OK = false;
             }
@@ -115,7 +115,7 @@ namespace CarLtdTesting
         }
 
         [TestMethod]
-        public void OrderDatePropertyOK()
+        public void OrderDateOK()
         {
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
@@ -128,7 +128,7 @@ namespace CarLtdTesting
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the property
-            if (AnOrder.DateAdded != Convert.ToDateTime("10/02/2015"))
+            if (AnOrder.OrderDate != Convert.ToDateTime("10/02/2015"))
             {
                 OK = false;
             }
