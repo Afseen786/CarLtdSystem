@@ -1,6 +1,6 @@
-﻿using System;
-using ClassLibrary;
+﻿using CarLtdClasses;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace CarLtdClasses
 {
@@ -27,6 +27,42 @@ namespace CarLtdClasses
             //test to see that the two values are the same
             Assert.AreEqual(AnOrder.Active, TestData);
 
+        }
+
+        public string Valid(string orderNo, string orderName, string orderStatus, string orderDate, string billingAddress)
+        {
+            //create a string variable to store the rror
+            String Error = "";
+            //create a temporary variable to store data values
+            DateTime DateTemp;
+            //if the OrderNo is blank
+            if (orderNo.Length == 0)
+            {
+                //record the error
+                Error = Error + "The order no must not be blank : ";
+            }
+            //if the order no is greater than 6 characters
+            if (orderNo.Length > 6)
+            {
+                //record the error
+                Error = Error + "the order no must be less than 6 characters : ";
+            }
+            //copy the dateAdded value to the DateTemp variable
+            DateTemp = Convert.ToDateTime(OrderDate);
+            if (DateTemp < DateTime.Now.Date)
+            {
+                //record the error
+                Error = Error + "the date cannot be in the past : ";
+            }
+            //check to see if the date is greater than today's date
+            if (DateTemp > DateTime.Now.Date)
+            {
+                //record the error
+                Error = Error + "the date cannot be in the future : ";
+            }
+
+            //return any error messages
+            return Error;
         }
 
         //private data member for the order no property
