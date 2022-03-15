@@ -449,6 +449,218 @@ namespace CarLtdTesting
             Assert.AreNotEqual(Error, "");
         }
 
+        [TestMethod]
+        public void OrderStatusMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string OrderStatus = "";
+            //invoke the method
+            Error = AnOrder.Valid(OrderNo, OrderName, OrderStatus, OrderDate, BillingAddress);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderStatusin()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string OrderStatus = "IN TRANSIT";
+            //invoke the method
+            Error = AnOrder.Valid(OrderNo, OrderName, OrderStatus, OrderDate, BillingAddress);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderStatusMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string OrderStatus = "aa";
+            //invoke the method
+            Error = AnOrder.Valid(OrderNo, OrderName, OrderStatus, OrderDate, BillingAddress);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderStatusaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string OrderStatus = "aaaaaaaa";
+            //invoke the method
+            Error = AnOrder.Valid(OrderNo, OrderName, OrderStatus, OrderDate, BillingAddress);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderStatusMax()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string OrderStatus = "aaaaaaaaa";
+            //invoke the method
+            Error = AnOrder.Valid(OrderNo, OrderName, OrderStatus, OrderDate, BillingAddress);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderStatusMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string OrderStatus = "aaaaaaaaaa";
+            //invoke the method
+            Error = AnOrder.Valid(OrderNo, OrderName, OrderStatus, OrderDate, BillingAddress);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderStatusMid()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string OrderStatus = "aaaa";
+            //invoke the method
+            Error = AnOrder.Valid(OrderNo, OrderName, OrderStatus, OrderDate, BillingAddress);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void BillingAddressLessOne()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string BillingAddress = "";
+            //invoke the method
+            Error = AnOrder.Valid(OrderNo, OrderName, OrderStatus, OrderDate, BillingAddress);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void BillingAddressMin()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string BillingAddress = "a";
+            //invoke the method
+            Error = AnOrder.Valid(OrderNo, OrderName, OrderStatus, OrderDate, BillingAddress);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StreetMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string BillingAddress = "aa";
+            //invoke the method
+            Error = AnOrder.Valid(OrderNo, OrderName, OrderStatus, OrderDate, BillingAddress);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void BillingAddressMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string BillingAddress = "";
+            BillingAddress = BillingAddress.PadRight(49, 'a');
+            //invoke the method
+            Error = AnOrder.Valid(OrderNo, OrderName, OrderStatus, OrderDate, BillingAddress);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void BillingAddressMax()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string Street = "";
+            Street = Street.PadRight(50, 'a');
+            //invoke the method
+            Error = AnOrder.Valid(OrderNo, OrderName, OrderStatus, OrderDate, BillingAddress);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void BillingAddresstMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string BillingAddress = "";
+            //invoke the method
+            Error = AnOrder.Valid(OrderNo, OrderName, OrderStatus, OrderDate, BillingAddress);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void BillingAddressMid()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string BillingAddress = "";
+            BillingAddress = BillingAddress.PadRight(25, 'a');
+            //invoke the method
+            Error = AnOrder.Valid(OrderNo, OrderName, OrderStatus, OrderDate, BillingAddress);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
         public string Valid(string orderNo, string orderName, string orderStatus, string orderDate, string billingAddress)
         {
             //create a string variable to store the error
@@ -468,18 +680,62 @@ namespace CarLtdTesting
                 //record the error
                 Error = Error + "The order no must be less than 6 characters : ";
             }
-            //copy the OrderDate value to the DateTemp variable
-            DateTemp = Convert.ToDateTime(OrderDate);
-            if (DateTemp < DateTime.Now.Date)
+            try
             {
-                //record the error
-                Error = Error + "The date cannot be in the past : ";
+                //copy the OrderDate value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(OrderDate);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see if the date is greater than today's date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
             }
-            //check to see if the date is greater than today's date
-            if (DateTemp > DateTime.Now.Date)
+            catch
+            {
+                //return any error messages
+                return Error;
+            }
+            //is the post code blank
+            if (orderStatus.Length == 0)
             {
                 //record the error
-                Error = Error + "The date cannot be in the future : ";
+                Error = Error + "The order status may not be blank : ";
+            }
+            //if the post code is too long
+            if (orderStatus.Length > 9)
+            {
+                //record the error
+                Error = Error + "The order status must be less than 9 characters : ";
+            }
+            //is the street blank
+            if (orderStatus.Length == 0)
+            {
+                //record the error
+                Error = Error + "The order status may not be blank : ";
+            }
+            //if the street is too long
+            if (orderStatus.Length > 50)
+            {
+                //record the error
+                Error = Error + "The order status must be less than 50 characters : ";
+            }
+            //is the town blank
+            if (BillingAddress.Length == 0)
+            {
+                //record the error
+                Error = Error + "The billing address may not be blank : ";
+            }
+            //if the town is too long
+            if (BillingAddress.Length > 50)
+            {
+                //record the error
+                Error = Error + "The billing address must be less than 50 characters : ";
             }
             //return any error messages
             return Error;

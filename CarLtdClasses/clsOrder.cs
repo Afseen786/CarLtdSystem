@@ -47,8 +47,10 @@ namespace CarLtdClasses
                 //record the error
                 Error = Error + "the order no must be less than 6 characters : ";
             }
+        try 
+        { 
             //copy the dateAdded value to the DateTemp variable
-            DateTemp = Convert.ToDateTime(OrderDate);
+            DateTemp = Convert.ToDateTime(orderDate);
             if (DateTemp < DateTime.Now.Date)
             {
                 //record the error
@@ -60,6 +62,12 @@ namespace CarLtdClasses
                 //record the error
                 Error = Error + "the date cannot be in the future : ";
             }
+        }
+        catch
+        {
+        //record the error
+        Error = Error + "The date was not a valid date : ";
+        }
 
             //return any error messages
             return Error;
