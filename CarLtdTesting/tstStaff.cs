@@ -83,7 +83,7 @@ namespace CarLtdTesting
         {
             clsStaff AStaff = new clsStaff(); //Instance of class to be created
             Boolean Found = false; //Stores the results from validation
-            Int32 StaffID = 4; //Test data to be assigned to property
+            Int32 StaffID = 3; //Test data to be assigned to property
             Found = AStaff.Find(StaffID); //Invoke method
             Assert.IsTrue(Found); //Test result to see if true
         }
@@ -94,9 +94,9 @@ namespace CarLtdTesting
             clsStaff AStaff = new clsStaff(); //Instance of class to be created
             Boolean Found = false; //Variable used to store result
             Boolean OK = true; //Records if data is OK
-            Int32 StaffID = 4; //Test data assigned to property
+            Int32 StaffID = 3; //Test data assigned to property
             Found = AStaff.Find(StaffID); //Invoke method
-            if (AStaff.StaffID != 4) //Check Staff ID
+            if (AStaff.StaffID != 3) //Check Staff ID
             {
                 OK = false;
             }
@@ -109,7 +109,7 @@ namespace CarLtdTesting
             clsStaff AStaff = new clsStaff(); //Instance of class to be created
             Boolean Found = false; //Variable used to store result
             Boolean OK = true; //Records if data is OK
-            Int32 StaffID = 4; //Test data assigned to property
+            Int32 StaffID = 3; //Test data assigned to property
             Found = AStaff.Find(StaffID); //Invoke method
             if (AStaff.FirstName != "Test First") //Checks the property
             {
@@ -124,7 +124,7 @@ namespace CarLtdTesting
             clsStaff AStaff = new clsStaff(); //Instance of class to be created
             Boolean Found = false; //Variable used to store result
             Boolean OK = true; //Records if data is OK
-            Int32 StaffID = 4; //Test data assigned to property
+            Int32 StaffID = 3; //Test data assigned to property
             Found = AStaff.Find(StaffID); //Invoke method
             if (AStaff.LastName != "Test Last") //Checks the property
             {
@@ -139,7 +139,7 @@ namespace CarLtdTesting
             clsStaff AStaff = new clsStaff(); //Instance of class to be created
             Boolean Found = false; //Variable used to store result
             Boolean OK = true; //Records if data is OK
-            Int32 StaffID = 4; //Test data assigned to property
+            Int32 StaffID = 3; //Test data assigned to property
             Found = AStaff.Find(StaffID); //Invoke method
             if (AStaff.Department != "Test Department") //Checks the property
             {
@@ -154,9 +154,9 @@ namespace CarLtdTesting
             clsStaff AStaff = new clsStaff(); //Instance of class to be created
             Boolean Found = false; //Variable used to store result
             Boolean OK = true; //Records if data is OK
-            Int32 StaffID = 4; //Test data assigned to property
+            Int32 StaffID = 3; //Test data assigned to property
             Found = AStaff.Find(StaffID); //Invoke method
-            if (AStaff.PhoneNo != "XXXXX XXX XXX") //Checks the property
+            if (AStaff.PhoneNo != "XXXXXXXXXXX") //Checks the property
             {
                 OK = false;
             }
@@ -169,7 +169,7 @@ namespace CarLtdTesting
             clsStaff AStaff = new clsStaff(); //Instance of class to be created
             Boolean Found = false; //Variable used to store result
             Boolean OK = true; //Records if data is OK
-            Int32 StaffID = 4; //Test data assigned to property
+            Int32 StaffID = 3; //Test data assigned to property
             Found = AStaff.Find(StaffID); //Invoke method
             if (AStaff.DateAdded !=Convert.ToDateTime("20/01/2020")) //Checks the property
             {
@@ -184,7 +184,7 @@ namespace CarLtdTesting
             clsStaff AStaff = new clsStaff(); //Instance of class to be created
             Boolean Found = false; //Variable used to store result
             Boolean OK = true; //Records if data is OK
-            Int32 StaffID = 4; //Test data assigned to property
+            Int32 StaffID = 3; //Test data assigned to property
             Found = AStaff.Find(StaffID); //Invoke method
             if (AStaff.Active != true) //Checks the property
             {

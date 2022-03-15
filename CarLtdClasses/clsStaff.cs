@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ClassLibrary;
 
 namespace CarLtdClasses
 {
@@ -100,18 +101,26 @@ namespace CarLtdClasses
 
 
         public bool Find(int staffID)
-        { 
-            //Private data members test data values
+        {
+            clsDataConnection DB = new clsDataConnection(); //Instance of data connection
+            DB.AddParameter("@StaffID", StaffID); //Parameter for staff id to be searched
+            DB.Execute("sproc_tblStaff_FilterByStaffID"); //Execute stored procedure
+            if (DB.Count == 1) //If 1 record is found
+            {
+                mStaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]);
+                mFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
+                mLastName = Convert.ToString(DB.DataTable.Rows[0]["LastName"]);
+                mDepartment = Convert.ToString(DB.DataTable.Rows[0]["Department"]);
+                mPhoneNo = Convert.ToString(DB.DataTable.Rows[0]["PhoneNo"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
 
-            mStaffID = 4;
-            mFirstName = "Test First";
-            mLastName = "Test Last";
-            mDepartment = "Test Department";
-            mPhoneNo = "XXXXX XXX XXX";
-            mDateAdded = Convert.ToDateTime("20/01/2020");
-            mActive = true;
-
-            return true; //Must always return true
+                return true; //Return everything worked
+            }
+            else //If no record found
+            {
+                return false; //Return false, indicating an issue
+            }
         }
     }
 }
