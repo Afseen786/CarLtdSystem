@@ -8,29 +8,29 @@ namespace CarLtdTesting
         //private data member for the supplier no
         private Int32 mSupplierId;
         //private data member for the active
-        
+
         private string mSupplierName;
         private string mSupplierEmail;
         private string mSupplierAddress;
 
-       
-        
-        public Int32 SupplierId 
+
+
+        public Int32 SupplierId
         {
             get
             {
                 //this line of code send data out of the property
                 return mSupplierId;
-            }      
-        
+            }
+
             set
             {
 
                 //this line of code allows data into the property
                 mSupplierId = value;
             }
-           
-        
+
+
         }
         public string SupplierEmail
         {
@@ -47,7 +47,7 @@ namespace CarLtdTesting
                 mSupplierEmail = value;
             }
         }
-        
+
         public string SupplierAddress
         {
             get
@@ -63,7 +63,7 @@ namespace CarLtdTesting
                 mSupplierAddress = value;
             }
         }
-        
+
         public string SupplierName
         {
             get
@@ -105,7 +105,7 @@ namespace CarLtdTesting
                 return true;
 
             }
-            
+
         }
     }
 }
