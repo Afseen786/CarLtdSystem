@@ -13,5 +13,9 @@ public partial class StaffViewer : System.Web.UI.Page
         clsStaff AStaff = new clsStaff(); //Instance of clsStaff
         AStaff = (clsStaff)Session["AStaff"]; //Get data from the session object
         Response.Write(AStaff.FirstName);
+        Response.Write(AStaff.LastName);
+        Response.Write(AStaff.PhoneNo);
+        Response.Write(AStaff.Department);
+        Response.Write(AStaff.DateAdded);
     }
 }
