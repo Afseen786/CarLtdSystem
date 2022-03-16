@@ -9,12 +9,12 @@ namespace CarLtdTesting
     {
         //good test data 
         //create some test data to pass to the method 
-        string FirstName = "Aisha";
-        string LastName = "Patel";
+        string FirstName = "Sunny";
+        string LastName = "Sub";
         string DateOfBirth = DateTime.Now.Date.ToString();
-        string Address = "34 silver street";
-        string PostCode = "le7 2oi";
-        string PhoneNumber = "01167543271";
+        string Address = "98 Moat Road";
+        string PostCode = "LE3 0TY";
+        string PhoneNumber = "01245674748";
    [TestMethod]
 
     public void InstanceOK()
@@ -55,7 +55,7 @@ namespace CarLtdTesting
         //create an instance of the class we want to create
         clsCustomer ACustomer = new clsCustomer();
         //create some test data to assign to the property
-        Int32 TestData = 2;
+        Int32 TestData = 3;
         //assign the data to the property
         ACustomer.CustomerID = TestData;
         //test to see that the two values are the same
@@ -68,7 +68,7 @@ namespace CarLtdTesting
         //create an instance of the class we want to create
         clsCustomer ACustomer = new clsCustomer();
         //create some test data to assign to the property
-        string TestData = "Aisha";
+        string TestData = "Sunny";
         //assign the data to the property
         ACustomer.FirstName = TestData;
         //test to see that the two values are the same
@@ -81,7 +81,7 @@ namespace CarLtdTesting
         //create an instance of the class we want to create
         clsCustomer ACustomer = new clsCustomer();
         //create some test data to assign to the property
-        string TestData = "Patel";
+        string TestData = "Sub";
         //assign the data to the property
         ACustomer.LastName = TestData;
         //test to see that the two values are the same
@@ -93,7 +93,7 @@ namespace CarLtdTesting
         //create an instance of the class we want to create
         clsCustomer ACustomer = new clsCustomer();
         //create some test data to assign to the property
-        string TestData = "31 silver street";
+        string TestData = "98 Moat Road";
         //assign the data to the property
         ACustomer.Address = TestData;
         //test to see that the two values are the same
@@ -106,7 +106,7 @@ namespace CarLtdTesting
         //create an instance of the class we want to create
         clsCustomer ACustomer = new clsCustomer();
         //create some test data to assign to the property
-        string TestData = "le7 2oi";
+        string TestData = "LE3 0TY";
         //assign the data to the property
         ACustomer.PostCode = TestData;
         //test to see that the two values are the same
@@ -119,7 +119,7 @@ namespace CarLtdTesting
         //create an instance of the class we want to create
         clsCustomer ACustomer = new clsCustomer();
         //create some test data to assign to the property
-        string TestData = "01167543271";
+        string TestData = "01245674748";
         //assign the data to the property
         ACustomer.PhoneNumber = TestData;
         //test to see that the two values are the same
@@ -132,7 +132,7 @@ namespace CarLtdTesting
             //boolean variable to store the result of the validation
             Boolean Found = true;
             //create some test data to use with the method
-            Int32 CustomerID = 2;
+            Int32 CustomerID = 3;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //test to see that the result is correct
@@ -149,11 +149,11 @@ namespace CarLtdTesting
         //boolean variable to record if data is ok (assume it is)
         Boolean OK = true;
         //create some test data to use with the method
-        Int32 CustomerID = 2;
+        Int32 CustomerID = 3;
         //invoke the method
         Found = ACustomer.Find(CustomerID);
         //check the customer id
-        if (ACustomer.CustomerID != 2)
+        if (ACustomer.CustomerID != 3)
         {
             OK = true;
         }
@@ -172,7 +172,7 @@ namespace CarLtdTesting
         //boolean variable to record if data is ok (assume it is)
         Boolean OK = true;
         //create some tesr data to use with the method
-        Int32 CustomerID = 2;
+        Int32 CustomerID = 3;
         //invoke the method
         Found = ACustomer.Find(CustomerID);
         //check the customer id
@@ -195,11 +195,11 @@ namespace CarLtdTesting
         //boolean variable to record if data is OK (assume it is)
         Boolean OK = true;
         //create some test data to use with the method
-        Int32 CustomerID = 2;
+        Int32 CustomerID = 3;
         //invoke the method
         Found = ACustomer.Find(CustomerID);
         //check the property
-        if (ACustomer.FirstName != "Aisha")
+        if (ACustomer.FirstName != "Sunny")
         {
             OK = true;
         }
@@ -216,11 +216,11 @@ namespace CarLtdTesting
         //boolean variable to record if data is OK (assume it is)
         Boolean OK = true;
         //create some test data to use with the method
-        Int32 CustomerID = 2;
+        Int32 CustomerID = 3;
         //invoke the method
         Found = ACustomer.Find(CustomerID);
         //check the property
-        if (ACustomer.PhoneNumber != "01167543271")
+        if (ACustomer.PhoneNumber != "01245674748")
         {
             OK = true;
         }
@@ -237,11 +237,11 @@ namespace CarLtdTesting
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 CustomerID = 2;
+            Int32 CustomerID = 3;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the property
-            if (ACustomer.PostCode != "le7 2oi ")
+            if (ACustomer.PostCode != "LE3 0TY")
             {
                 OK = true;
             }
@@ -259,11 +259,11 @@ namespace CarLtdTesting
         //boolean variable to record if data is OK (assume it is)
         Boolean OK = true;
         //create some test data to use with the method
-        Int32 CustomerID = 2;
+        Int32 CustomerID = 3;
         //invoke the method
         Found = ACustomer.Find(CustomerID);
         //check the property
-        if (ACustomer.LastName != "Patel")
+        if (ACustomer.LastName != "Sub")
         {
             OK = true;
         }
@@ -281,11 +281,11 @@ namespace CarLtdTesting
         //boolean variable to record if data is OK (assume it is)
         Boolean OK = true;
         //create some test data to use with the method
-        Int32 CustomerID = 2;
+        Int32 CustomerID = 3;
         //invoke the method
         Found = ACustomer.Find(CustomerID);
         //check the property
-        if (ACustomer.Address != "21 silver street")
+        if (ACustomer.Address != "98 Moat Road")
         {
             OK = true;
         }
@@ -303,7 +303,7 @@ namespace CarLtdTesting
         //boolean variable to record if data is OK (assume it is)
         Boolean OK = true;
         //create some test data to use with the method
-        Int32 CustomerID = 2;
+        Int32 CustomerID = 3;
         //invoke the method
         Found = ACustomer.Find(CustomerID);
         //check the property
@@ -564,7 +564,7 @@ namespace CarLtdTesting
             DateTime TestDate;
             //set the adte totodays date 
             TestDate = DateTime.Now.Date;
-            //change the dae to whatever the date is less 100 years
+            //change the date to whatever the date is less 100 years
             TestDate = TestDate.AddYears(-100);
             //convert the date variable to a string variable
             string DateOfBirth = TestDate.ToString();
@@ -584,7 +584,7 @@ namespace CarLtdTesting
             DateTime TestDate;
             //set the adte totodays date 
             TestDate = DateTime.Now.Date;
-            //change the dae to whatever the date is less 1 day
+            //change the date to whatever the date is less 1 day
             TestDate = TestDate.AddDays(-1);
             //convert the date variable to a string variable
             string DateOfBirth = TestDate.ToString();
@@ -602,7 +602,7 @@ namespace CarLtdTesting
             String Error = "";
             //create some test data to pass to the method 
             DateTime TestDate;
-            //set the adte totodays date 
+            //set the date totodays date 
             TestDate = DateTime.Now.Date;
             //convert the date variable to a string variable
             string DateOfBirth = TestDate.ToString();
@@ -622,7 +622,7 @@ namespace CarLtdTesting
             DateTime TestDate;
             //set the adte totodays date 
             TestDate = DateTime.Now.Date;
-            //change the dae to whatever the date is plus 1 day
+            //change the date to whatever the date is plus 1 day
             TestDate = TestDate.AddDays(1);
             //convert the date variable to a string variable
             string DateOfBirth = TestDate.ToString();
@@ -642,7 +642,7 @@ namespace CarLtdTesting
             DateTime TestDate;
             //set the adte totodays date 
             TestDate = DateTime.Now.Date;
-            //change the dae to whatever the date is plus 1 day
+            //change the date to whatever the date is plus 100 years
             TestDate = TestDate.AddYears(100);
             //convert the date variable to a string variable
             string DateOfBirth = TestDate.ToString();
@@ -773,7 +773,7 @@ namespace CarLtdTesting
             String Error = "";
             //create some test data to pass to the method 
             string Address = "";
-            Address = Address.PadRight(200, 'c');
+            Address = Address.PadRight(200, 'a');
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -807,7 +807,8 @@ namespace CarLtdTesting
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-        [TestMethod]
+
+            [TestMethod]
         public void PostCodeMinPlusOne()
         {
             //create an instance of the class we want to create 
@@ -829,7 +830,7 @@ namespace CarLtdTesting
             //string variable to store any error message 
             String Error = "";
             //create some test data to pass to the method 
-            string PostCode = "aaaaaaaaa";
+            string PostCode = "aaaaaa";
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -843,7 +844,7 @@ namespace CarLtdTesting
             //string variable to store any error message 
             String Error = "";
             //create some test data to pass to the method 
-            string PostCode = "aaaaaaaaaa";
+            string PostCode = "aaaaaaa";
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -857,7 +858,8 @@ namespace CarLtdTesting
             //string variable to store any error message 
             String Error = "";
             //create some test data to pass to the method 
-            string PostCode = "aaaaaaaaaaa";
+            string PostCode = "aaaaaaaa";
+            //PostCode = PostCode.PadRight(8, 'c');
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -886,7 +888,7 @@ namespace CarLtdTesting
             String Error = "";
             //create some test data to pass to the method 
             string PostCode = "";
-            PostCode = PostCode.PadRight(100, 'a');
+            PostCode = PostCode.PadRight(100, '1');
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -1004,6 +1006,77 @@ namespace CarLtdTesting
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            //create an instance of the class we want to create 
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //create the item of test data 
+            clsCustomer TestItem = new clsCustomer();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.active = true;
+            TestItem.CustomerID = 1;
+            TestItem.FirstName = "Afseen";
+            TestItem.LastName = "Asphak";
+            TestItem.DateOfBirth = DateTime.Now.Date;
+            TestItem.Address = "12 Rose Street";
+            TestItem.PostCode = "LE5 3RT";
+            TestItem.PhoneNumber = "02345678912";
+            //set thisCustomer to the test data 
+            AllCustomers.ThisCustomer = TestItem;
+            //add the record 
+            PrimaryKey = AllCustomers.Add();
+            //set the primary key of the test data
+            TestItem.CustomerID = PrimaryKey;
+            //find the record
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+            //test to see that the two values are the same 
+            Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
+        }
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            //create an instance of the class we want to create 
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //create the item of test data 
+            clsCustomer TestItem = new clsCustomer();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.active = true;
+            TestItem.CustomerID = 11;
+            TestItem.FirstName = "Yaz";
+            TestItem.LastName = "John";
+            TestItem.DateOfBirth = DateTime.Now.Date;
+            TestItem.Address = "49 Miss Road ";
+            TestItem.PostCode = "LE6 8TY";
+            TestItem.PhoneNumber = "44556677777";
+            //set thisCustomer to the test data 
+            AllCustomers.ThisCustomer = TestItem;
+            //add the record 
+            PrimaryKey = AllCustomers.Add();
+            //set the primary key of the test data
+            TestItem.CustomerID = PrimaryKey;
+            //modify the test data 
+            TestItem.active = true;
+            TestItem.CustomerID = 11;
+            TestItem.FirstName = "Yaz";
+            TestItem.LastName = "John";
+            TestItem.DateOfBirth = DateTime.Now.Date;
+            TestItem.Address = "49 Miss Road ";
+            TestItem.PostCode = "LE6 8TY";
+            TestItem.PhoneNumber = "44556677777";
+            //set the record based on the new test data
+            AllCustomers.ThisCustomer = TestItem;
+            //update the record
+            AllCustomers.Update();
+            //find the record
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+            //test to see ThisCustomer matches the test data
+            Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
         }
     }
 }

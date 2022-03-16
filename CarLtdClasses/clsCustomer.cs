@@ -3,6 +3,7 @@ using System;
 
 namespace CarLtdClasses
 {
+
     public class clsCustomer
     {
         //private data member for the active property
@@ -227,10 +228,10 @@ namespace CarLtdClasses
                     Error = Error + "The post code may not be blank : ";
                 }
                 //if the post code is too long 
-                if (postCode.Length > 10)
+                if (postCode.Length > 7)
                 {
                     //record the error 
-                    Error = Error + "The post code must be less than 10 characters : ";
+                    Error = Error + "The post code must be less than 7 characters : ";
                 }
             //if the phone number is blank 
             if (phoneNumber.Length == 0)
