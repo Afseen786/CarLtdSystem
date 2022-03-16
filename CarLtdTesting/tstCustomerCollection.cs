@@ -9,7 +9,7 @@ namespace CarLtdTesting
     public class tstCustomerCollection
     {
         [TestMethod]
-        public void InstanceOK()
+        public void instanceOK()
         {
             //create an instance of the class we want to create 
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
@@ -17,7 +17,7 @@ namespace CarLtdTesting
             Assert.IsNotNull(AllCustomers);
         }
         [TestMethod]
-        public void ThisCustomerProerptyOK()
+        public void thisCustomerPropertyOK()
         {
             //create an instance of the class we want to create 
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
@@ -38,7 +38,7 @@ namespace CarLtdTesting
             Assert.AreEqual(AllCustomers.ThisCustomer, TestCustomer);
         }
         [TestMethod]
-        public void ListAndCountOK()
+        public void listAndCountOK()
         {
             //create an instance of the class we want to create 
             clsCustomerCollection AllCustomers = new clsCustomerCollection();

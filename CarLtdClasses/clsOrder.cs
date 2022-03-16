@@ -6,30 +6,155 @@ namespace CarLtdClasses
 {
     public class clsOrder
     {
-        public void InstanceOK()
+        /*
+        [TestMethod]
+        public void FindMethodOK()
         {
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
-            //test to see that it exists
-            Assert.IsNotNull(AnOrder);
-
+            //boolean variable to store the result of the validation
+            Boolean Found = false;
+            //create some test data to use with the method
+            Int32 OrderNo = 1;
+            //invoke the method
+            Found = AnOrder.Find(OrderNo);
+            //test to see that the result is correct
+            Assert.IsTrue(Found);
         }
 
         [TestMethod]
-        public void ActivePropertyOK()
+        public void TestOrderNoFound()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder= new clsOrder();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderNo = 10;
+            //invoke the method
+            Found = AnOrder.Find(OrderNo);
+            //check the property
+            if (AnOrder.OrderName != "Test OrderName")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestOrderNameFound()
         {
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
-            //create some test data to assign to the property
-            Boolean TestData = true;
-            //assign the data to the property
-            AnOrder.Active = TestData;
-            //test to see that the two values are the same
-            Assert.AreEqual(AnOrder.Active, TestData);
-
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderName = 5;
+            //invoke the method
+            Found = AnOrder.Find(OrderName);
+            //check the address no
+            if (AnOrder.OrderName != "TstOrdName")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
         }
 
-        public string Valid(string orderNo, string orderName, string orderStatus, string orderDate, string billingAddress)
+        [TestMethod]
+        public void TestOrderStatusFound()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 AddressNo = 21;
+            //invoke the method
+            Found = AnOrder.Find(OrderNo);
+            //check the property
+            if (AnOrder.OrderStatus != "SHIPPED")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestOrderDateFound()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderNo = 21;
+            //invoke the method
+            Found = AnOrder.Find(OrderNo);
+            //check the property
+            if (AnOrder.OrderDate != Convert.ToDateTime("10/02/2015"))
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestBillingAddressFound()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderNo = 10;
+            //invoke the method
+            Found = AnOrder.Find(OrderNo);
+            //check the property
+            if (AnOrder.BillingAddress !=("30 Berry Street"))
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestActiveFound()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderNo = 21;
+            //invoke the method
+            Found = AnOrder.Find(OrderNo);
+            //check the property
+            if (AnOrder.Active != true)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        public string Valid(string orderNo, string OrderName, string OrderStatus, string OrderDate, string BillingAddress)
         {
             //create a string variable to store the rror
             String Error = "";
@@ -50,7 +175,7 @@ namespace CarLtdClasses
         try 
         { 
             //copy the dateAdded value to the DateTemp variable
-            DateTemp = Convert.ToDateTime(orderDate);
+            DateTemp = Convert.ToDateTime(OrderDate);
             if (DateTemp < DateTime.Now.Date)
             {
                 //record the error
@@ -72,6 +197,7 @@ namespace CarLtdClasses
             //return any error messages
             return Error;
         }
+        */
 
         //private data member for the order no property
         private Int32 mOrderNo;
@@ -166,7 +292,7 @@ namespace CarLtdClasses
             }
         }
 
-        public bool Find(int AddressNo)
+        public bool Find(int OrderNo)
         {
             //set the private data members to the test data value
 
