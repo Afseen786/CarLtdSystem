@@ -1,0 +1,101 @@
+        public string Valid(string OrderNo, string OrderName, string OrderStatus, string OrderDate, string BillingAddress)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //create a temporary variable to store date values
+            DateTime DateTemp;
+
+            //if the HouseNo is blank
+            if (OrderNo.Length == 0)
+            {
+                //record the error
+                Error = Error + "The order no may not be blank : ";
+            }
+            //if the house no is greater than 6 characters
+            if (OrderNo.Length > 6)
+            {
+                //record the error
+                Error = Error + "The order no must be less than 6 characters : ";
+            }
+
+            //order name
+            if (OrderName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The order name may not be blank : ";
+            }
+            //if the order name is greater than 30 characters
+            if (OrderName.Length > 30)
+            {
+                //record the error
+                Error = Error + "The order name may not be more than 30 characters : ";
+            }
+
+            //order date
+            try
+            {
+                //copy the OrderDate value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(OrderDate);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see if the date is greater than today's date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+
+            //is the order status blank
+            if (OrderStatus.Length == 0)
+            {
+                //record the error
+                Error = Error + "The order status may not be blank : ";
+            }
+            //if the order status is too long
+            if (OrderStatus.Length > 9)
+            {
+                //record the error
+                Error = Error + "The order status must be less than 9 characters : ";
+            }
+
+            //is the billing address blank
+            if (BillingAddress.Length == 0)
+            {
+                //record the error
+                Error = Error + "The billing address may not be blank : ";
+            }
+            //if the billing address is too long
+            if (BillingAddress.Length > 50)
+            {
+                //record the error
+                Error = Error + "The billing address must be less than 50 characters : ";
+            }
+            //return any error messages
+            return Error;
+        }
+
+        //private data member for the order no property
+        private Int32 mOrderNo;
+        //OrderNo public property
+        public Int32 OrderNo
+        {
+            get
+            {
+                //this line of code sends data out of the property
+                return mOrderNo;
+            }
+            set
+            {
+                //this line of code allwos data into the property
+                mOrderNo = value;
+            }
+        }
