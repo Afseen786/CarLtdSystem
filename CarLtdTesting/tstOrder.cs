@@ -16,6 +16,19 @@ namespace CarLtdTesting
         string BillingAddress = "15 Longway Road";
 
         [TestMethod]
+        public void ValidMethodOK()
+        {
+            //create an instane of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //string variable to store any error message
+            String Error = "";
+            //invoke the method
+            Error = AnOrder.Valid(OrderNo, OrderName, OrderStatus, OrderDate, BillingAddress);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
         public void FindMethodOK()
         {
             //create an instance of the class we want to create

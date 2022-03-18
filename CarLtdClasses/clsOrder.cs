@@ -118,5 +118,10 @@ namespace CarLtdClasses
             //always return true
             return true;
         }
+
+        public string Valid(string orderNo, string orderName, string orderStatus, string orderDate, string billingAddress)
+        {
+            return "";
+        }
     }
 }

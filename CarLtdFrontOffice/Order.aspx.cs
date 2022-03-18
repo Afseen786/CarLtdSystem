@@ -42,16 +42,43 @@ public partial class Order : System.Web.UI.Page
             txtBillingAddress.Text = AnOrder.BillingAddress.ToString();
         }
     }
-
     protected void btnOK_Click(object sender, EventArgs e)
     {
         //create a new instance of clsOrder
         clsOrder AnOrder = new clsOrder();
         //capture the order no
-        AnOrder.OrderNo = Convert.ToInt32(txtOrderNo.Text);
-        //store the order in the session object
-        Session["AnOrder"] = AnOrder;
-        //redirect to the viewer page
-        Response.Redirect("OrderViewwer.aspx");
+        string OrderNo = txtOrderNo.Text;
+        //capture the order name
+        string OrderName = txtOrderName.Text;
+        //capture the order status
+        string OrderStatus = txtOrderStatus.Text;
+        //capture the order date
+        string OrderDate = txtOrderDate.Text;
+        //capture the billing address
+        string BillingAddress = txtBillingAddress.Text;
+        //variable to store any error messages
+        string Error = "";
+        //validate the data
+        Error = AnOrder.Valid(OrderNo, OrderName, OrderStatus, OrderDate, BillingAddress);
+        if (Error == "")
+        {
+            //capture the order no
+            AnOrder.OrderNo = Convert.ToInt32(OrderNo);
+            //capture the order name
+            AnOrder.OrderName = OrderName;
+            //capture the order status
+            AnOrder.OrderStatus = OrderStatus;
+            //capture the order date
+            AnOrder.OrderDate = Convert.ToDateTime(OrderDate);
+            //store the order in the session object
+            Session["AnOrder"] = AnOrder;
+            //redirect to the viewer page
+            Response.Redirect("OrderViewwer.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
     }
 }
