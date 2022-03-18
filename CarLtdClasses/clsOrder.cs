@@ -6,65 +6,6 @@ namespace CarLtdClasses
 {
     public class clsOrder
     {
-        public void InstanceOK()
-        {
-            //create an instance of the class we want to create
-            clsOrder AnOrder = new clsOrder();
-            //test to see that it exists
-            Assert.IsNotNull(AnOrder);
-
-        }
-
-        [TestMethod]
-        public void ActivePropertyOK()
-        {
-            //create an instance of the class we want to create
-            clsOrder AnOrder = new clsOrder();
-            //create some test data to assign to the property
-            Boolean TestData = true;
-            //assign the data to the property
-            AnOrder.Active = TestData;
-            //test to see that the two values are the same
-            Assert.AreEqual(AnOrder.Active, TestData);
-
-        }
-
-        public string Valid(string orderNo, string orderName, string orderStatus, string orderDate, string billingAddress)
-        {
-            //create a string variable to store the rror
-            String Error = "";
-            //create a temporary variable to store data values
-            DateTime DateTemp;
-            //if the OrderNo is blank
-            if (orderNo.Length == 0)
-            {
-                //record the error
-                Error = Error + "The order no must not be blank : ";
-            }
-            //if the order no is greater than 6 characters
-            if (orderNo.Length > 6)
-            {
-                //record the error
-                Error = Error + "the order no must be less than 6 characters : ";
-            }
-            //copy the dateAdded value to the DateTemp variable
-            DateTemp = Convert.ToDateTime(OrderDate);
-            if (DateTemp < DateTime.Now.Date)
-            {
-                //record the error
-                Error = Error + "the date cannot be in the past : ";
-            }
-            //check to see if the date is greater than today's date
-            if (DateTemp > DateTime.Now.Date)
-            {
-                //record the error
-                Error = Error + "the date cannot be in the future : ";
-            }
-
-            //return any error messages
-            return Error;
-        }
-
         //private data member for the order no property
         private Int32 mOrderNo;
         //OrderNo public property
@@ -158,19 +99,19 @@ namespace CarLtdClasses
             }
         }
 
-        public bool Find(int AddressNo)
+        public bool Find(int OrderNo)
         {
             //set the private data members to the test data value
 
-            mOrderNo = 10;
+            mOrderNo = 1;
 
-            mOrderName = "ORD999";
+            mOrderName = "Ishvone";
 
-            mOrderStatus = "SHIPPED";
+            mOrderStatus = "Process";
 
-            mOrderDate = Convert.ToDateTime("10/02/2015");
+            mOrderDate = Convert.ToDateTime("12/02/2022");
 
-            mBillingAddress = "30 Berry Street";
+            mBillingAddress = "23 Rose Street";
 
             mActive = true;
             

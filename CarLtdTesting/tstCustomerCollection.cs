@@ -9,7 +9,7 @@ namespace CarLtdTesting
     public class tstCustomerCollection
     {
         [TestMethod]
-        public void InstanceOK()
+        public void instanceOK()
         {
             //create an instance of the class we want to create 
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
