@@ -12,7 +12,6 @@ namespace CarLtdClasses
     {
         //private data member for the list
         List<clsCustomer> mCustomerList = new List<clsCustomer>();
-        //clsDataConnection DBConnection;
         //private data member thisCustomers
         clsCustomer mThisCustomer = new clsCustomer();
         //constructor for the class

@@ -8,7 +8,7 @@ using CarLtdClasses;
 
 public partial class ACustomer : System.Web.UI.Page
 {
-    //var to store the customer number
+    //var to store the customer ID
     Int32 CustomerID;
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -95,7 +95,7 @@ public partial class ACustomer : System.Web.UI.Page
 
             }
         }
-            //function for adding new records
+        //function for adding new records
         void Add()
         {
         //create an instance of this customer book
@@ -123,9 +123,9 @@ public partial class ACustomer : System.Web.UI.Page
             //report an error 
             lblError.Text = "There were problems with the data entered" + Error;
         }
-       }
-         //function for updating records
-          void Update()
+     }
+        //function for updating records
+        void Update()
           {
         //create an instance of the customer book
          CarLtdClasses.clsCustomerCollection CustomerBook = new CarLtdClasses.clsCustomerCollection();

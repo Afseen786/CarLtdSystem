@@ -19,9 +19,9 @@ namespace CarLtdTesting
 
     public void InstanceOK()
     {
-        //create an instance of the class we want to createe
+        //create an instance of the class we want to create
         clsCustomer ACustomer = new clsCustomer();
-        //test to see that it exists
+        //test to see that it exits
         Assert.IsNotNull(ACustomer);
     }
     [TestMethod]
@@ -34,7 +34,7 @@ namespace CarLtdTesting
         Boolean TestData = true;
         //assign the data to the property
         ACustomer.active = TestData;
-        //test to see that it exists
+        //test to see that it exits
         Assert.AreEqual(ACustomer.active, TestData);
     }
         [TestMethod]
@@ -46,7 +46,7 @@ namespace CarLtdTesting
         DateTime TestData = DateTime.Now.Date;
         //assign the data to the property
         ACustomer.DateOfBirth = TestData;
-        //test to see that it exists
+        //test to see that it exits
         Assert.AreEqual(ACustomer.DateOfBirth, TestData);
     }
     [TestMethod]
@@ -58,7 +58,7 @@ namespace CarLtdTesting
         Int32 TestData = 3;
         //assign the data to the property
         ACustomer.CustomerID = TestData;
-        //test to see that the two values are the same
+        //test to see that it exits
         Assert.AreEqual(ACustomer.CustomerID, TestData);
     }
 
@@ -71,7 +71,7 @@ namespace CarLtdTesting
         string TestData = "Sunny";
         //assign the data to the property
         ACustomer.FirstName = TestData;
-        //test to see that the two values are the same
+        //test to see that it exits
         Assert.AreEqual(ACustomer.FirstName, TestData);
     }
 
@@ -84,7 +84,7 @@ namespace CarLtdTesting
         string TestData = "Sub";
         //assign the data to the property
         ACustomer.LastName = TestData;
-        //test to see that the two values are the same
+        //test to see that the it exits
         Assert.AreEqual(ACustomer.LastName, TestData);
     }
     [TestMethod]
@@ -96,7 +96,7 @@ namespace CarLtdTesting
         string TestData = "98 Moat Road";
         //assign the data to the property
         ACustomer.Address = TestData;
-        //test to see that the two values are the same
+        //test to see that the it exits
         Assert.AreEqual(ACustomer.Address, TestData);
     }
 
@@ -109,7 +109,7 @@ namespace CarLtdTesting
         string TestData = "LE3 0TY";
         //assign the data to the property
         ACustomer.PostCode = TestData;
-        //test to see that the two values are the same
+        //test to see that the it exits
         Assert.AreEqual(ACustomer.PostCode, TestData);
     }
 
@@ -122,7 +122,7 @@ namespace CarLtdTesting
         string TestData = "01245674748";
         //assign the data to the property
         ACustomer.PhoneNumber = TestData;
-        //test to see that the two values are the same
+        //test to see that the it exits
         Assert.AreEqual(ACustomer.PhoneNumber, TestData);
     }
         public void FindMethodOK()
@@ -175,7 +175,7 @@ namespace CarLtdTesting
         Int32 CustomerID = 3;
         //invoke the method
         Found = ACustomer.Find(CustomerID);
-        //check the customer id
+        //check the date of birth properly 
         if (ACustomer.DateOfBirth != Convert.ToDateTime("01/01/2021"))
         {
             OK = true;
@@ -198,7 +198,7 @@ namespace CarLtdTesting
         Int32 CustomerID = 3;
         //invoke the method
         Found = ACustomer.Find(CustomerID);
-        //check the property
+        //check the first name property
         if (ACustomer.FirstName != "Sunny")
         {
             OK = true;
@@ -219,7 +219,7 @@ namespace CarLtdTesting
         Int32 CustomerID = 3;
         //invoke the method
         Found = ACustomer.Find(CustomerID);
-        //check the property
+        //check the phone number property
         if (ACustomer.PhoneNumber != "01245674748")
         {
             OK = true;
@@ -240,7 +240,7 @@ namespace CarLtdTesting
             Int32 CustomerID = 3;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
-            //check the property
+            //check the postcode property
             if (ACustomer.PostCode != "LE3 0TY")
             {
                 OK = true;
@@ -262,7 +262,7 @@ namespace CarLtdTesting
         Int32 CustomerID = 3;
         //invoke the method
         Found = ACustomer.Find(CustomerID);
-        //check the property
+        //check the last name property
         if (ACustomer.LastName != "Sub")
         {
             OK = true;
@@ -284,7 +284,7 @@ namespace CarLtdTesting
         Int32 CustomerID = 3;
         //invoke the method
         Found = ACustomer.Find(CustomerID);
-        //check the property
+        //check the address property
         if (ACustomer.Address != "98 Moat Road")
         {
             OK = true;
@@ -306,7 +306,7 @@ namespace CarLtdTesting
         Int32 CustomerID = 3;
         //invoke the method
         Found = ACustomer.Find(CustomerID);
-        //check the property
+        //check the active property
         if (ACustomer.active != true)
         {
             OK = true;
@@ -323,7 +323,6 @@ namespace CarLtdTesting
             String Error = "";
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address,  PostCode, PhoneNumber);
-            //Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -335,7 +334,7 @@ namespace CarLtdTesting
             //string variable to store any error message 
             String Error = "";
             //create some test data to pass to the method 
-            string FirstName = ""; //this should trigger an error
+            string FirstName = ""; 
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -349,7 +348,7 @@ namespace CarLtdTesting
             //string variable to store any error message 
             String Error = "";
             //create some test data to pass to the method 
-            string FirstName = "a"; //this should trigger an error
+            string FirstName = "a"; 
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -363,7 +362,7 @@ namespace CarLtdTesting
             //string variable to store any error message 
             String Error = "";
             //create some test data to pass to the method 
-            string FirstName = "aa"; //this should trigger an error
+            string FirstName = "aa"; 
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -377,7 +376,7 @@ namespace CarLtdTesting
             //string variable to store any error message 
             String Error = "";
             //create some test data to pass to the method 
-            string FirstName = "aaaaaaaaaaaaaaaaaaa"; //this should trigger an error
+            string FirstName = "aaaaaaaaaaaaaaaaaaa"; 
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -391,7 +390,7 @@ namespace CarLtdTesting
             //string variable to store any error message 
             String Error = "";
             //create some test data to pass to the method 
-            string FirstName = "aaaaaaaaaaaaaaaaaaaa"; //this should trigger an error
+            string FirstName = "aaaaaaaaaaaaaaaaaaaa"; 
            //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -405,7 +404,7 @@ namespace CarLtdTesting
             //string variable to store any error message 
             String Error = "";
             //create some test data to pass to the method 
-            string FirstName = "aaaaaaaaaaaaaaaaaaaa"; //this should trigger an error
+            string FirstName = "aaaaaaaaaaaaaaaaaaaa"; 
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -419,7 +418,7 @@ namespace CarLtdTesting
             //string variable to store any error message 
             String Error = "";
             //create some test data to pass to the method 
-            string FirstName = "aaaaaaaaaaaaaaaaaaaaa"; //this should fail
+            string FirstName = "aaaaaaaaaaaaaaaaaaaaa"; 
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -448,7 +447,7 @@ namespace CarLtdTesting
             //string variable to store any error message 
             String Error = "";
             //create some test data to pass to the method 
-            string LastName = ""; //this should trigger an error
+            string LastName = ""; 
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -462,7 +461,7 @@ namespace CarLtdTesting
             //string variable to store any error message 
             String Error = "";
             //create some test data to pass to the method 
-            string LastName = "b"; //this should trigger an error
+            string LastName = "b"; 
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -476,7 +475,7 @@ namespace CarLtdTesting
             //string variable to store any error message 
             String Error = "";
             //create some test data to pass to the method 
-            string LastName = "bb"; //this should trigger an error
+            string LastName = "bb"; 
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -490,7 +489,7 @@ namespace CarLtdTesting
             //string variable to store any error message 
             String Error = "";
             //create some test data to pass to the method 
-            string LastName = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbb"; //this should trigger an error
+            string LastName = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbb"; 
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -504,7 +503,7 @@ namespace CarLtdTesting
             //string variable to store any error message 
             String Error = "";
             //create some test data to pass to the method 
-            string LastName = "bbbbbbbbbbbbbbbbbbbb"; //this should trigger an error
+            string LastName = "bbbbbbbbbbbbbbbbbbbb"; 
            //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -518,7 +517,7 @@ namespace CarLtdTesting
             //string variable to store any error message 
             String Error = "";
             //create some test data to pass to the method 
-            string LastName = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"; //this should trigger an error
+            string LastName = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"; 
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -532,7 +531,7 @@ namespace CarLtdTesting
             //string variable to store any error message 
             String Error = "";
             //create some test data to pass to the method 
-            string FirstName = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbb"; //this should fail
+            string FirstName = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbb"; 
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -673,7 +672,7 @@ namespace CarLtdTesting
             //string variable to store any error message 
             String Error = "";
             //create some test data to pass to the method 
-            string Address = ""; //this should trigger an error
+            string Address = ""; 
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -687,7 +686,7 @@ namespace CarLtdTesting
             //string variable to store any error message 
             String Error = "";
             //create some test data to pass to the method 
-            string Address = "c"; //this should trigger an error
+            string Address = "c"; 
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -701,7 +700,7 @@ namespace CarLtdTesting
             //string variable to store any error message 
             String Error = "";
             //create some test data to pass to the method 
-            string Address = "cc"; //this should trigger an error
+            string Address = "cc"; 
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -714,6 +713,7 @@ namespace CarLtdTesting
             clsCustomer ACustomer = new clsCustomer();
             //string variable to store any error message 
             String Error = "";
+            //create some test data to pass to the method
             Address = Address.PadRight(34, 'c');
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
@@ -758,7 +758,7 @@ namespace CarLtdTesting
             //string variable to store any error message 
             String Error = "";
             //create some test data to pass to the method 
-            string Address = ""; //this should fail
+            string Address = ""; 
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -859,7 +859,6 @@ namespace CarLtdTesting
             String Error = "";
             //create some test data to pass to the method 
             string PostCode = "aaaaaaaa";
-            //PostCode = PostCode.PadRight(8, 'c');
             //invoke the method 
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
@@ -1006,77 +1005,6 @@ namespace CarLtdTesting
             Error = ACustomer.Valid(FirstName, LastName, DateOfBirth, Address, PostCode, PhoneNumber);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
-        }
-        [TestMethod]
-        public void AddMethodOK()
-        {
-            //create an instance of the class we want to create 
-            clsCustomerCollection AllCustomers = new clsCustomerCollection();
-            //create the item of test data 
-            clsCustomer TestItem = new clsCustomer();
-            //var to store the primary key
-            Int32 PrimaryKey = 0;
-            //set its properties
-            TestItem.active = true;
-            TestItem.CustomerID = 1;
-            TestItem.FirstName = "Afseen";
-            TestItem.LastName = "Asphak";
-            TestItem.DateOfBirth = DateTime.Now.Date;
-            TestItem.Address = "12 Rose Street";
-            TestItem.PostCode = "LE5 3RT";
-            TestItem.PhoneNumber = "02345678912";
-            //set thisCustomer to the test data 
-            AllCustomers.ThisCustomer = TestItem;
-            //add the record 
-            PrimaryKey = AllCustomers.Add();
-            //set the primary key of the test data
-            TestItem.CustomerID = PrimaryKey;
-            //find the record
-            AllCustomers.ThisCustomer.Find(PrimaryKey);
-            //test to see that the two values are the same 
-            Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
-        }
-        [TestMethod]
-        public void UpdateMethodOK()
-        {
-            //create an instance of the class we want to create 
-            clsCustomerCollection AllCustomers = new clsCustomerCollection();
-            //create the item of test data 
-            clsCustomer TestItem = new clsCustomer();
-            //var to store the primary key
-            Int32 PrimaryKey = 0;
-            //set its properties
-            TestItem.active = true;
-            TestItem.CustomerID = 11;
-            TestItem.FirstName = "Yaz";
-            TestItem.LastName = "John";
-            TestItem.DateOfBirth = DateTime.Now.Date;
-            TestItem.Address = "49 Miss Road ";
-            TestItem.PostCode = "LE6 8TY";
-            TestItem.PhoneNumber = "44556677777";
-            //set thisCustomer to the test data 
-            AllCustomers.ThisCustomer = TestItem;
-            //add the record 
-            PrimaryKey = AllCustomers.Add();
-            //set the primary key of the test data
-            TestItem.CustomerID = PrimaryKey;
-            //modify the test data 
-            TestItem.active = true;
-            TestItem.CustomerID = 11;
-            TestItem.FirstName = "Yaz";
-            TestItem.LastName = "John";
-            TestItem.DateOfBirth = DateTime.Now.Date;
-            TestItem.Address = "49 Miss Road ";
-            TestItem.PostCode = "LE6 8TY";
-            TestItem.PhoneNumber = "44556677777";
-            //set the record based on the new test data
-            AllCustomers.ThisCustomer = TestItem;
-            //update the record
-            AllCustomers.Update();
-            //find the record
-            AllCustomers.ThisCustomer.Find(PrimaryKey);
-            //test to see ThisCustomer matches the test data
-            Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
         }
     }
 }

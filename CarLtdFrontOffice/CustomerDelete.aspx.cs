@@ -21,7 +21,6 @@ public partial class CustomerDelete : System.Web.UI.Page
     void DeleteCustomer()
     {
         //function to delete the selected record
-
         //create a new instance of teh customer book
         clsCustomerCollection CustomerBook = new clsCustomerCollection();
         //find the record to delete 
@@ -34,7 +33,7 @@ public partial class CustomerDelete : System.Web.UI.Page
     {
         //delete the record
         DeleteCustomer();
-        //redirect back to the default page
+        //redirect back to the customer default page
         Response.Redirect("CustomerDefault.aspx");
 
     }
