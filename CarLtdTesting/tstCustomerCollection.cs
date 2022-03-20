@@ -13,7 +13,7 @@ namespace CarLtdTesting
         {
             //create an instance of the class we want to create 
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
-            //test to see that it exists
+            //test to see that it exits
             Assert.IsNotNull(AllCustomers);
         }
         [TestMethod]

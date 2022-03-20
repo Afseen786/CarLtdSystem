@@ -14,7 +14,7 @@ public partial class CustomerViewer : System.Web.UI.Page
         clsCustomer ACustomer = new clsCustomer();
         //get the data from the session object
         ACustomer = (clsCustomer)Session["ACustomer"];
-        //display the customer id for their entry
+        //display the customer id or firstname for their entry
         Response.Write(ACustomer.FirstName);
     }
 }

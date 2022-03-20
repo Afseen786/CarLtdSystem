@@ -8,8 +8,6 @@ using System.Web.UI.WebControls;
 
 public partial class _Default : System.Web.UI.Page
 {
-    //variable to store the primary key with page level scope
-    //Int32 CustomerID;
     //event handler for the page load event
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -42,17 +40,12 @@ public partial class _Default : System.Web.UI.Page
         //bind the data to the list
         lstCustomers.DataBind();
     }
-
-    protected void lstCustomers_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
     //event handler for the add button
     protected void btnAdd_Click(object sender, EventArgs e)
     {
         //store -1 into the session object to indicate this is a new record
         Session["CustomerID"] = -1;
-        //redirect to the data entry page
+        //redirect to the data Acustomer page 
         Response.Redirect("ACustomer.aspx"); 
     }
     //event handler for the delete button
@@ -67,7 +60,7 @@ public partial class _Default : System.Web.UI.Page
             CustomerID = Convert.ToInt32(lstCustomers.SelectedValue);
             //store the data in the session object
             Session["CustomerID"] = CustomerID;
-            //redirect to the delete page 
+            //redirect to the customer delete page 
             Response.Redirect("CustomerDelete.aspx");
         }
         else //if no record has been selected
@@ -88,7 +81,7 @@ public partial class _Default : System.Web.UI.Page
             CustomerID = Convert.ToInt32(lstCustomers.SelectedValue);
             //store the data in the session object
            Session["CustomerID"] = CustomerID;
-            //redirect to the delete page 
+            //redirect to the Acustomer page 
             Response.Redirect("ACustomer.aspx"); 
         }
         else //if no record has been selected
@@ -149,5 +142,9 @@ public partial class _Default : System.Web.UI.Page
             Index++; //move the index to the next record
         }
         return RecordCount; //return the count of records found 
+    }
+    protected void lstCustomers_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
     }
 }
