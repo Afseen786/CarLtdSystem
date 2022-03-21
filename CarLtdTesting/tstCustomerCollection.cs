@@ -13,7 +13,7 @@ namespace CarLtdTesting
         {
             //create an instance of the class we want to create 
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
-            //test to see that it exits
+            //test to see that it exists
             Assert.IsNotNull(AllCustomers);
         }
         [TestMethod]
@@ -226,7 +226,7 @@ namespace CarLtdTesting
             clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
             //var to store outcome
             Boolean OK = true;
-            //apply a postcode that doesn't exist
+            //apply a postcode that doesn't exists
             FilteredCustomers.ReportByPostCode("LE4 0PP");
             //check that the correct number of records are found
             if (FilteredCustomers.Count == 2)
