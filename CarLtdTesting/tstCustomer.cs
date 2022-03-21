@@ -21,7 +21,7 @@ namespace CarLtdTesting
     {
         //create an instance of the class we want to create
         clsCustomer ACustomer = new clsCustomer();
-        //test to see that it exits
+        //test to see that it exists
         Assert.IsNotNull(ACustomer);
     }
     [TestMethod]
@@ -34,7 +34,7 @@ namespace CarLtdTesting
         Boolean TestData = true;
         //assign the data to the property
         ACustomer.active = TestData;
-        //test to see that it exits
+        //test to see that it exists
         Assert.AreEqual(ACustomer.active, TestData);
     }
         [TestMethod]
@@ -46,7 +46,7 @@ namespace CarLtdTesting
         DateTime TestData = DateTime.Now.Date;
         //assign the data to the property
         ACustomer.DateOfBirth = TestData;
-        //test to see that it exits
+        //test to see that it exists
         Assert.AreEqual(ACustomer.DateOfBirth, TestData);
     }
     [TestMethod]
@@ -58,7 +58,7 @@ namespace CarLtdTesting
         Int32 TestData = 3;
         //assign the data to the property
         ACustomer.CustomerID = TestData;
-        //test to see that it exits
+        //test to see that it exists
         Assert.AreEqual(ACustomer.CustomerID, TestData);
     }
 
@@ -71,7 +71,7 @@ namespace CarLtdTesting
         string TestData = "Sunny";
         //assign the data to the property
         ACustomer.FirstName = TestData;
-        //test to see that it exits
+        //test to see that it exists
         Assert.AreEqual(ACustomer.FirstName, TestData);
     }
 
@@ -84,7 +84,7 @@ namespace CarLtdTesting
         string TestData = "Sub";
         //assign the data to the property
         ACustomer.LastName = TestData;
-        //test to see that the it exits
+        //test to see that the it exists
         Assert.AreEqual(ACustomer.LastName, TestData);
     }
     [TestMethod]
@@ -96,7 +96,7 @@ namespace CarLtdTesting
         string TestData = "98 Moat Road";
         //assign the data to the property
         ACustomer.Address = TestData;
-        //test to see that the it exits
+        //test to see that the it exists
         Assert.AreEqual(ACustomer.Address, TestData);
     }
 
@@ -109,7 +109,7 @@ namespace CarLtdTesting
         string TestData = "LE3 0TY";
         //assign the data to the property
         ACustomer.PostCode = TestData;
-        //test to see that the it exits
+        //test to see that the it exists
         Assert.AreEqual(ACustomer.PostCode, TestData);
     }
 
@@ -122,7 +122,7 @@ namespace CarLtdTesting
         string TestData = "01245674748";
         //assign the data to the property
         ACustomer.PhoneNumber = TestData;
-        //test to see that the it exits
+        //test to see that the it exists
         Assert.AreEqual(ACustomer.PhoneNumber, TestData);
     }
         public void FindMethodOK()
