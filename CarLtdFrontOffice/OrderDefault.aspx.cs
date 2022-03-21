@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarLtdClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,11 +17,10 @@ public partial class _Default : System.Web.UI.Page
             DisplayOrders();
         }
     }
-
     void DisplayOrders()
     {
         //ceate an instance of the Order Collection
-        ClassLibrary.clsOrderCollection Orders = new ClassLibrary.clsOrderCollection();
+        CarLtdClasses.clsOrderCollection Orders = new CarLtdClasses.clsOrderCollection();
         //set the data source to the list of orders in the collection
         lstOrders.DataSource = Orders.OrderList;
         //set the name of the primary key

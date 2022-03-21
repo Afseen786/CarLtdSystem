@@ -22,7 +22,7 @@ using System.Data;
 ///This class uses the ado.net sql classes to provide a connection to an Azure sql server database.
 ///it is free for use by anybody so long as you give credit to the original author i.e me
 ///Matthew Dean mjdean@dmu.ac.uk De Montfort University 2019
-namespace ClassLibrary
+namespace Class_Library
 {
     public class clsDataConnection
     {
