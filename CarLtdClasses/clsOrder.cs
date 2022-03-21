@@ -1,6 +1,8 @@
 ﻿using CarLtdClasses;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
+using Class_Library;
 
 namespace CarLtdClasses
 {
@@ -86,6 +88,8 @@ namespace CarLtdClasses
 
         //Active private member variable
         private bool mActive;
+        private List<clsOrder> mOrderList;
+
         //Active public property
         public bool Active
         {
@@ -96,6 +100,35 @@ namespace CarLtdClasses
             set
             {
                 mActive = value;
+            }
+        }
+
+        //public property for the order list
+        public List<clsOrder> OrderList
+        {
+            get
+            {
+                //return the private data
+                return mOrderList;
+            }
+            set
+            {
+                //set the private data
+                mOrderList = value;
+            }
+        }
+
+        //public property for count
+        public int Count
+        {
+            get
+            {
+                //return the count of the list
+                return mOrderList.Count;
+            }
+            set
+            {
+                //later
             }
         }
 
