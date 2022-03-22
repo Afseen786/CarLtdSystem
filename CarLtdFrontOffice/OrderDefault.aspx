@@ -27,7 +27,7 @@
             <asp:Button ID="btnDisplayAll" runat="server" style="margin-left: 10px" Text="Display All" Width="80px" />
         </p>
         <p style="margin-left: 280px">
-            <asp:Button ID="btnAdd" runat="server" Text="Add" />
+            <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />
             <asp:Button ID="btnEdit" runat="server" style="margin-left: 10px" Text="Edit" />
             <asp:Button ID="btnDelete" runat="server" style="margin-left: 10px" Text="Delete" />
         </p>
