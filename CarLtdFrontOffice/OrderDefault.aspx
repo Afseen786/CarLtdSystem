@@ -21,6 +21,8 @@
         </p>
         <p style="margin-left: 280px">
             <asp:TextBox ID="txtBoxOrders" runat="server" Height="20px" style="margin-left: 0px; margin-top: 1px" Width="165px"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lblError" runat="server"></asp:Label>
         </p>
         <p style="margin-left: 280px">
             <asp:Button ID="btnApply" runat="server" style="margin-left: 0px" Text="Apply" Width="80px" />
@@ -28,7 +30,7 @@
         </p>
         <p style="margin-left: 280px">
             <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />
-            <asp:Button ID="btnEdit" runat="server" style="margin-left: 10px" Text="Edit" />
+            <asp:Button ID="btnEdit" runat="server" style="margin-left: 10px" Text="Edit" OnClick="btnEdit_Click" />
             <asp:Button ID="btnDelete" runat="server" style="margin-left: 10px" Text="Delete" OnClick="btnDelete_Click" />
         </p>
     </form>

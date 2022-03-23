@@ -113,5 +113,21 @@ namespace CarLtdClasses
             //execute the stored procedure
             DB.Execute("sproc_tblOrder_Delete");
         }
+
+        public void Update()
+        {
+            //update an existing record based on the values of thisOrder
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@OrderNo", mThisOrder.OrderNo);
+            DB.AddParameter("@OrderName", mThisOrder.OrderName);
+            DB.AddParameter("@OrderStatus", mThisOrder.OrderStatus);
+            DB.AddParameter("OrderDate", mThisOrder.OrderDate);
+            DB.AddParameter("BillingAddress", mThisOrder.BillingAddress);
+            DB.AddParameter("Active", mThisOrder.Active);
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrder_Update");
+        }
     }   
 }

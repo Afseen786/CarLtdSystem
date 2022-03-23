@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
 </head>
-<body>
+<body style="height: 300px">
     <form id="form1" runat="server">
         <div>
         </div>
@@ -16,11 +16,13 @@
             &nbsp;</p>
         <p>
             &nbsp;</p>
-        <p>
+        <div style="margin-left: 280px">
             <asp:Label ID="lblError" runat="server" Text="Are you sure you want to delete this order?"></asp:Label>
-        </p>
-        <asp:Button ID="btnYes" runat="server" OnClick="btnYes_Click" style="margin-left: 65px" Text="Yes" />
-        <asp:Button ID="btnNo" runat="server" Text="No" />
+        </div>
+        <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnYes" runat="server" OnClick="btnYes_Click" style="margin-left: 65px" Text="Yes" Width="50px" />
+        <asp:Button ID="btnNo" runat="server" Text="No" Width="50px" />
     </form>
 </body>
 </html>

@@ -42,6 +42,7 @@ public partial class Order : System.Web.UI.Page
             txtBillingAddress.Text = AnOrder.BillingAddress.ToString();
         }
     }
+
     protected void btnOK_Click(object sender, EventArgs e)
     {
         //add the new record
@@ -101,6 +102,7 @@ public partial class Order : System.Web.UI.Page
                 OrderBook.ThisOrder.OrderStatus = txtOrderStatus.Text;
                 OrderBook.ThisOrder.OrderDate = Convert.ToDateTime(txtOrderDate.Text);
                 OrderBook.ThisOrder.BillingAddress = txtBillingAddress.Text;
+            OrderBook.ThisOrder.Active = Active.Checked;
                 //add the record
                 OrderBook.Add();
             }
@@ -110,4 +112,34 @@ public partial class Order : System.Web.UI.Page
                 lblError.Text = "There were problems with the data entered " + Error;
             }
         }
+
+    //function for updating records
+    void Update()
+    {
+        //create an instance of the order book
+        CarLtdClasses.clsOrderCollection OrderBook = new clsOrderCollection();
+        //validate the data on the web form
+        String Error = OrderBook.ThisOrder.Valid(txtOrderNo.Text, txtOrderName.Text, txtOrderStatus.Text, txtOrderDate.Text, txtBillingAddress.Text);
+        //if the data is OK then add it to the object
+        if (Error == "")
+        {
+            //find the record to update
+            OrderBook.ThisOrder.Find(OrderNo);
+            //get the data entered by the user
+            OrderBook.ThisOrder.OrderName = txtOrderName.Text;
+            OrderBook.ThisOrder.OrderStatus = txtOrderStatus.Text;
+            OrderBook.ThisOrder.OrderDate = Convert.ToDateTime(txtOrderDate.Text);
+            OrderBook.ThisOrder.BillingAddress = txtBillingAddress.Text;
+            OrderBook.ThisOrder.Active = Active.Checked;
+            //update the record
+            OrderBook.Update();
+            //all done so redirect back to the main page
+            Response.Redirect("OrderDefault.aspx");
+        }
+        else
+        {
+            //report an error
+            lblError.Text = "There were problems with the data entered" + Error;
+        }
+    }
 }
