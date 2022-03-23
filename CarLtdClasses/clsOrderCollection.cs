@@ -9,6 +9,23 @@ namespace CarLtdClasses
     {
         //private data member for the list
         List<clsOrder> mOrderList = new List<clsOrder>();
+        //private data member thisOrder
+        clsOrder mThisOrder = new clsOrder();
+        //public property for ThisOrder
+        public clsOrder ThisOrder
+        {
+            get
+            {
+                //return the private data
+                return mThisOrder;
+            }
+            set
+            {
+                //set the private data
+                mThisOrder = value;
+            }
+        }
+
         //public property for the order list
         public List<clsOrder> OrderList
         {
@@ -70,5 +87,47 @@ namespace CarLtdClasses
                 Index++;
             }
         }
-    }
+        public int Add()
+        {
+            //adds a new record to the database based on the values of thisOrder
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("OrderNo", mThisOrder.OrderNo);
+            DB.AddParameter("OrderName", mThisOrder.OrderName);
+            DB.AddParameter("OrderStatus", mThisOrder.OrderStatus);
+            DB.AddParameter("OrderDate", mThisOrder.OrderDate);
+            DB.AddParameter("BillingAddress", mThisOrder.BillingAddress);
+            DB.AddParameter("Active", mThisOrder.Active);
+            //execute the query returning the primary key value
+            return DB.Execute("sproc_tblOrder_Insert");
+        }
+
+        public void Delete()
+        {
+            //deletes the record pointed to by thisOrder
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for this stored procedure
+            DB.AddParameter("@OrderNo", mThisOrder.OrderNo);
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrder_Delete");
+        }
+
+        public void Update()
+        {
+            //update an existing record based on the values of thisOrder
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@OrderNo", mThisOrder.OrderNo);
+            DB.AddParameter("@OrderName", mThisOrder.OrderName);
+            DB.AddParameter("@OrderStatus", mThisOrder.OrderStatus);
+            DB.AddParameter("OrderDate", mThisOrder.OrderDate);
+            DB.AddParameter("BillingAddress", mThisOrder.BillingAddress);
+            DB.AddParameter("Active", mThisOrder.Active);
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrder_Update");
+        }
+    }   
 }
