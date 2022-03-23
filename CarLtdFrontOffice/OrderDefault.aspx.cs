@@ -36,7 +36,29 @@ public partial class _Default : System.Web.UI.Page
     {
         //store -1 into the session object to indiciate this is a new record
         Session["OrderNo"] = -1;
+        //add the new record
         //redirect to the data entry page
         Response.Redirect("Order.aspx");
+    }
+
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        //var to store the primary key value of the record to be deleted
+        Int32 OrderNo;
+        //if a record has been selected from the list
+        if (lstOrders.SelectedIndex != -1)
+        {
+            //get the primary key value of the record to delete
+            OrderNo = Convert.ToInt32(lstOrders.SelectedValue);
+            //store the data in the session object
+            Session["OrderNo"] = OrderNo;
+            //redirect to the delete page
+            Response.Redirect("Delete.aspx");
+        }
+        else //if no record has been selected
+        {
+            //display an error
+            lblText.Text = "Please select a record to delete from the list";
+        }
     }
 }

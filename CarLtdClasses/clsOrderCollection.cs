@@ -87,7 +87,6 @@ namespace CarLtdClasses
                 Index++;
             }
         }
-
         public int Add()
         {
             //adds a new record to the database based on the values of thisOrder
@@ -103,5 +102,16 @@ namespace CarLtdClasses
             //execute the query returning the primary key value
             return DB.Execute("sproc_tblOrder_Insert");
         }
-    }
+
+        public void Delete()
+        {
+            //deletes the record pointed to by thisOrder
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for this stored procedure
+            DB.AddParameter("@OrderNo", mThisOrder.OrderNo);
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrder_Delete");
+        }
+    }   
 }
