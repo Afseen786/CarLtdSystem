@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 
 public partial class Order : System.Web.UI.Page
 {
+    Int32 OrderNo;
     protected void Page_Load(object sender, EventArgs e)
     {
         //create a new instance of clsOrder
@@ -35,7 +36,7 @@ public partial class Order : System.Web.UI.Page
         if (Found == true)
         {
             //display the values of the properties in the form
-            txtOrderNo.Text = AnOrder.OrderNo.ToString();
+            //txtOrderNo.Text = AnOrder.OrderNo.ToString();
             txtOrderName.Text = AnOrder.OrderName;
             txtOrderStatus.Text = AnOrder.OrderStatus;
             txtOrderDate.Text = AnOrder.OrderDate.ToString();
@@ -45,14 +46,23 @@ public partial class Order : System.Web.UI.Page
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
-        //add the new record
-        Add();
+        if (OrderNo == -1)
+        {
+            //dd the record
+            Add();
+        }
+        else
+        {
+            //update the new record
+            Update();
+        }
+
         //all done so redirect back to the main page
         Response.Redirect("OrderDefault.aspx");
         //create a new instance of clsOrder
         clsOrder AnOrder = new clsOrder();
         //capture the order no
-        string OrderNo = txtOrderNo.Text;
+        string OrderNo = this.txtOrderNo.Text;
         //capture the order name
         string OrderName = txtOrderName.Text;
         //capture the order status
@@ -102,7 +112,7 @@ public partial class Order : System.Web.UI.Page
                 OrderBook.ThisOrder.OrderStatus = txtOrderStatus.Text;
                 OrderBook.ThisOrder.OrderDate = Convert.ToDateTime(txtOrderDate.Text);
                 OrderBook.ThisOrder.BillingAddress = txtBillingAddress.Text;
-            OrderBook.ThisOrder.Active = Active.Checked;
+            OrderBook.ThisOrder.Active = chkActive.Checked;
                 //add the record
                 OrderBook.Add();
             }
@@ -130,7 +140,7 @@ public partial class Order : System.Web.UI.Page
             OrderBook.ThisOrder.OrderStatus = txtOrderStatus.Text;
             OrderBook.ThisOrder.OrderDate = Convert.ToDateTime(txtOrderDate.Text);
             OrderBook.ThisOrder.BillingAddress = txtBillingAddress.Text;
-            OrderBook.ThisOrder.Active = Active.Checked;
+            OrderBook.ThisOrder.Active = chkActive.Checked;
             //update the record
             OrderBook.Update();
             //all done so redirect back to the main page
@@ -141,5 +151,25 @@ public partial class Order : System.Web.UI.Page
             //report an error
             lblError.Text = "There were problems with the data entered" + Error;
         }
+    }
+
+        void DisplayOrders()
+        {
+            //create an instance of the order book
+            clsOrderCollection OrderBook = new clsOrderCollection();
+            //find the record to update
+            OrderBook.ThisOrder.Find(OrderNo);
+            //display the data for this record
+            txtOrderName.Text = OrderBook.ThisOrder.OrderName;
+            txtOrderStatus.Text = OrderBook.ThisOrder.OrderStatus;
+            txtOrderDate.Text = OrderBook.ThisOrder.OrderDate.ToString("dd/mm/yyyy");
+            txtBillingAddress.Text = OrderBook.ThisOrder.BillingAddress;
+            chkActive.Checked = OrderBook.ThisOrder.Active;
+        }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        //this line of code redirect back to the order default page 
+        Response.Redirect("OrderDefault.aspx");
     }
 }

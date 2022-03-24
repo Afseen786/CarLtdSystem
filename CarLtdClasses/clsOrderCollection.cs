@@ -7,10 +7,40 @@ namespace CarLtdClasses
 {
     public class clsOrderCollection
     {
+        //var for the index
+        Int32 Index = 0;
+        //var to store the record count
+        Int32 RecordCount = 0;
         //private data member for the list
         List<clsOrder> mOrderList = new List<clsOrder>();
         //private data member thisOrder
         clsOrder mThisOrder = new clsOrder();
+        //constructor for the class
+        //constructor for the class
+        public clsOrderCollection()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrder_SelectAll");
+            //populate the array list with the data table
+            PopulateArray(DB);
+            {
+                //create a blank address
+                clsOrder AnOrder = new clsOrder();
+                //read in the fields from the current record
+                AnOrder.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
+                AnOrder.OrderNo = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderNo"]);
+                AnOrder.OrderName = Convert.ToString(DB.DataTable.Rows[Index]["OrderName"]);
+                AnOrder.OrderStatus = Convert.ToString(DB.DataTable.Rows[Index]["OrderStatus"]);
+                AnOrder.OrderDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderDate"]);
+                AnOrder.BillingAddress = Convert.ToString(DB.DataTable.Rows[Index]["BillingAddress"]);
+                //add the record to the private data member
+                mOrderList.Add(AnOrder);
+                //point at the next record
+                Index++;
+            }
+        }
+
         //public property for ThisOrder
         public clsOrder ThisOrder
         {
@@ -55,38 +85,6 @@ namespace CarLtdClasses
             }
         }
 
-        //constructor for the class
-        public clsOrderCollection()
-        {
-            //var for the index
-            Int32 Index = 0;
-            //var to store the record count
-            Int32 RecordCount = 0;
-            //object for the data connection
-            clsDataConnection DB = new clsDataConnection();
-            //execute the stored procedure
-            DB.Execute("sproc_tblOrder_SelectAll");
-            //get the count of records
-
-            RecordCount = DB.Count;
-            //while there are records to process
-            while (Index < RecordCount)
-            {
-                //create a blank address
-                clsOrder AnOrder = new clsOrder();
-                //read in the fields from the current record
-                AnOrder.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
-                AnOrder.OrderNo = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderNo"]);
-                AnOrder.OrderName = Convert.ToString(DB.DataTable.Rows[Index]["OrderName"]);
-                AnOrder.OrderStatus = Convert.ToString(DB.DataTable.Rows[Index]["OrderStatus"]);
-                AnOrder.OrderDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderDate"]);
-                AnOrder.BillingAddress = Convert.ToString(DB.DataTable.Rows[Index]["BillingAddress"]);
-                //add the record to the private data member
-                mOrderList.Add(AnOrder);
-                //point at the next record
-                Index++;
-            }
-        }
         public int Add()
         {
             //adds a new record to the database based on the values of thisOrder
@@ -128,6 +126,49 @@ namespace CarLtdClasses
             DB.AddParameter("Active", mThisOrder.Active);
             //execute the stored procedure
             DB.Execute("sproc_tblOrder_Update");
+        }
+        [TestMethod]
+        public void ReportByOrderStatus(string OrderStatus)
+        {
+            //filters the record based on a full or partial order status
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //send the OrderStatus parameter to the database
+            DB.AddParameter("@OrderStatus", OrderStatus);
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrder_FilterByOrderStatus");
+            //populate the array list with the data table
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            //populates the array list based on the data table in the parameter DB
+            //var for the index
+            Int32 Index = 0;
+            //var to store the record count
+            Int32 RecordCount;
+            //get the count of records
+            RecordCount = DB.Count;
+            //clear the private array list
+            mOrderList = new List<clsOrder>();
+            //while there are records to process
+            while (Index < RecordCount)
+            {
+                //create a blank order
+                clsOrder AnOrder = new clsOrder();
+                //read in the fields from the current record
+                AnOrder.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
+                AnOrder.OrderNo = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderNo"]);
+                AnOrder.OrderName = Convert.ToString(DB.DataTable.Rows[Index]["OrderName"]);
+                AnOrder.OrderStatus = Convert.ToString(DB.DataTable.Rows[Index]["OrderStatus"]);
+                AnOrder.OrderDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderDate"]);
+                AnOrder.BillingAddress = Convert.ToString(DB.DataTable.Rows[Index]["BillingAddress"]);
+                //add the record to the private data member
+                mOrderList.Add(AnOrder);
+                //point at the next record
+                Index++;
+            }
         }
     }   
 }

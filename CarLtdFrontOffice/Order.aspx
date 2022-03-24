@@ -35,12 +35,12 @@
         <asp:TextBox ID="txtBillingAddress" runat="server" Height="50px" style="margin-left: 3px" Width="160px"></asp:TextBox>
         <br />
         <br />
-        <asp:CheckBox ID="Active" runat="server" />
+        <asp:CheckBox ID="chkActive" runat="server" />
         <asp:Label ID="lblError" runat="server"></asp:Label>
         <br />
         <br />
         <asp:Button ID="btnOK" runat="server" Text="OK" OnClick="btnOK_Click" />
-        <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+        <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
         <asp:Button ID="btnFind" runat="server" OnClick="btnFindOrders_Click" Text="Find" Width="90px" />
         <br />
         <br />
