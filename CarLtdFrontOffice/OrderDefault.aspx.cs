@@ -18,10 +18,17 @@ public partial class _Default : System.Web.UI.Page
         OrderNo = Convert.ToInt32(Session["OrderNo"]);
         if (IsPostBack == false)
         {
-            //update the list box
+            //populate the list of orders
             DisplayOrders();
+            //if this is not a new record
+            if (OrderNo != -1)
+            {
+                //display the current data for the record
+                DisplayOrders();
+            }
         }
     }
+
     void DisplayOrders()
     {
         //ceate an instance of the Order Collection

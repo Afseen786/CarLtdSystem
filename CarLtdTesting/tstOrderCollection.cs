@@ -9,45 +9,39 @@ namespace CarLtdTesting
     public class tstOrderCollection
     {
         [TestMethod]
-        public void TestMethod1()
+        public void InstanceOK()
         {
-
+            //create an instance of the class we want to create
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //test to see that it exists
+            Assert.IsNotNull(AllOrders);
         }
 
-            [TestMethod]
-            public void InstanceOK()
-            {
-                //create an instance of the class we want to create
-                clsOrderCollection AllOrders = new clsOrderCollection();
-                //test to see that it exists
-                Assert.IsNotNull(AllOrders);
-            }
-
-            [TestMethod]
-            public void OrderListOK()
-            {
-                //create an instance of the class we want to create
-                clsOrderCollection AllOrders = new clsOrderCollection();
-                //create some test data to assign to the property
-                //in this case the data needs to be a list of objects
-                List<clsOrder> TestList = new List<clsOrder>();
-                //add an item to the list
-                //create the item of test data
-                clsOrder TestItem = new clsOrder();
-                //set its properties
-                TestItem.Active = true;
-                TestItem.OrderNo = 2;
-                TestItem.OrderName = "Ish";
-                TestItem.OrderStatus = "IN TRANSIT";
-                TestItem.OrderDate = DateTime.Now.Date;
-                TestItem.BillingAddress = "13 Law Street";
-                //add the item to the test list
-                TestList.Add(TestItem);
-                //assign the data to the property
-                AllOrders.OrderList = TestList;
-                //test to see that the two values are the same
-                Assert.AreEqual(AllOrders.OrderList, TestList);
-            }
+         [TestMethod]
+         public void OrderListOK()
+         {
+            //create an instance of the class we want to create
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //create some test data to assign to the property
+            //in this case the data needs to be a list of objects
+            List<clsOrder> TestList = new List<clsOrder>();
+            //add an item to the list
+            //create the item of test data
+            clsOrder TestItem = new clsOrder();
+            //set its properties
+            TestItem.Active = true;
+            TestItem.OrderNo = 2;
+            TestItem.OrderName = "Ish";
+            TestItem.OrderStatus = "IN TRANSIT";
+            TestItem.OrderDate = DateTime.Now.Date;
+            TestItem.BillingAddress = "13 Law Street";
+            //add the item to the test list
+            TestList.Add(TestItem);
+            //assign the data to the property
+            AllOrders.OrderList = TestList;
+            //test to see that the two values are the same
+            Assert.AreEqual(AllOrders.OrderList, TestList);
+         }
 
             [TestMethod]
             public void ListAndCountOK()
@@ -172,6 +166,30 @@ namespace CarLtdTesting
             AllOrders.ThisOrder.Find(PrimaryKey);
             //test to see ThisOrder matches the test data
             Assert.AreEqual(AllOrders.ThisOrder, TestItem);
+        }
+
+        [TestMethod]
+        public void ReportByOrderStatusMethodOK()
+        {
+            //create an instance of the class containing unfiltered results
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //create an instance of the filtered data
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
+            //apply a blank string (should return all records)
+            FilteredOrders.ReportByOrderStatus("");
+            //test to see that the two values are the same
+            Assert.AreEqual(AllOrders.Count, FilteredOrders.Count);
+        }
+
+        [TestMethod]
+        public void ReportByOrderStatusNoneFound()
+        {
+            //create an instance of the filtered data
+            clsOrderCollection FilteredOrder = new clsOrderCollection();
+            //apply a order status that doesn't exist
+            FilteredOrder.ReportByOrderStatus("xxx xxx");
+            //test to see that there are no records
+            Assert.AreEqual(0, FilteredOrder.Count);
         }
     }   
 }
