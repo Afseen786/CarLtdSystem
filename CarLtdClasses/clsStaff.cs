@@ -100,7 +100,7 @@ namespace CarLtdClasses
         }
 
 
-        public bool Find(int staffID)
+        public bool Find(int StaffID)
         {
             clsDataConnection DB = new clsDataConnection(); //Instance of data connection
             DB.AddParameter("@StaffID", StaffID); //Parameter for staff id to be searched
