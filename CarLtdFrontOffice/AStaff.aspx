@@ -9,25 +9,25 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:CheckBox ID="chkActive" runat="server" Font-Names="Franklin Gothic Demi" style="z-index: 1; left: 367px; top: 67px; position: absolute" Text="Active" />
         </div>
-        <asp:Panel ID="Panel1" runat="server" BorderColor="Red" BorderStyle="Solid" Height="512px" Width="979px">
-            <asp:Label ID="lblFirstName" runat="server" style="z-index: 1; left: 369px; top: 168px; position: absolute" Text="First Name" Font-Names="Franklin Gothic Demi"></asp:Label>
-            <asp:Label ID="lblLastName" runat="server" Font-Names="Franklin Gothic Demi" style="z-index: 1; left: 369px; top: 222px; position: absolute" Text="Last Name"></asp:Label>
-            <asp:Label ID="lblPhoneNo" runat="server" Font-Names="Franklin Gothic Demi" style="z-index: 1; left: 370px; top: 278px; position: absolute" Text="Phone No"></asp:Label>
-            <asp:Label ID="lblDepartment" runat="server" Font-Names="Franklin Gothic Demi" style="z-index: 1; left: 369px; top: 333px; position: absolute" Text="Department"></asp:Label>
-            <asp:Label ID="lblDateAdded" runat="server" Font-Names="Franklin Gothic Demi" style="z-index: 1; left: 369px; top: 391px; position: absolute" Text="Date Added"></asp:Label>
-            <asp:Label ID="lblError" runat="server" Font-Names="Franklin Gothic Demi" style="z-index: 1; left: 25px; top: 501px; position: absolute" Text="[lblError]"></asp:Label>
-            <asp:Button ID="btnOK" runat="server" Font-Names="Franklin Gothic Demi" OnClick="btnOK_Click" style="z-index: 1; left: 408px; top: 466px; position: absolute" Text="OK" Width="88px" />
-            <asp:Button ID="btnCancel" runat="server" Font-Names="Franklin Gothic Demi" style="z-index: 1; left: 529px; top: 465px; position: absolute; width: 86px" Text="Cancel" />
-            <asp:TextBox ID="txtFirstName" runat="server" style="z-index: 1; left: 523px; top: 166px; position: absolute"></asp:TextBox>
-            <asp:TextBox ID="txtLastName" runat="server" style="position: absolute; z-index: 1; left: 523px; top: 217px"></asp:TextBox>
-            <asp:TextBox ID="txtPhoneNo" runat="server" style="z-index: 1; left: 523px; top: 275px; position: absolute"></asp:TextBox>
-            <asp:DropDownList ID="dropDepartment" runat="server" style="z-index: 1; left: 524px; top: 334px; position: absolute; height: 16px; width: 104px">
-            </asp:DropDownList>
-            <asp:TextBox ID="txtDateAdded" runat="server" style="z-index: 1; left: 520px; top: 388px; position: absolute"></asp:TextBox>
-            <asp:Label ID="lblStaffID" runat="server" Font-Names="Franklin Gothic Demi" style="z-index: 1; left: 369px; top: 113px; position: absolute" Text="StaffID"></asp:Label>
-            <asp:TextBox ID="txtStaffID" runat="server" style="z-index: 1; left: 524px; top: 111px; position: absolute"></asp:TextBox>
+        <asp:Panel ID="Panel1" runat="server" BorderColor="Red" BorderStyle="Solid" Height="472px" style="z-index: -1" Width="1048px">
+            <asp:Label ID="lblLastName" runat="server" Font-Names="Franklin Gothic Demi" style="z-index: 2; left: 398px; top: 205px; position: absolute" Text="Last Name"></asp:Label>
+            <asp:Label ID="lblPhoneNo" runat="server" Font-Names="Franklin Gothic Demi" style="z-index: 2; left: 398px; top: 270px; position: absolute" Text="PhoneNo"></asp:Label>
+            <asp:Label ID="lblDepartment" runat="server" Font-Names="Franklin Gothic Demi" style="z-index: 2; left: 396px; top: 337px; position: absolute; right: 589px" Text="Department"></asp:Label>
+            <asp:Label ID="lblDateAdded" runat="server" Font-Names="Franklin Gothic Demi" style="z-index: 2; left: 398px; top: 407px; position: absolute" Text="Date Added"></asp:Label>
+            <asp:Label ID="lblStaffID" runat="server" Font-Names="Franklin Gothic Demi" style="position: absolute; z-index: 2; left: 80px; top: 291px" Text="Staff ID"></asp:Label>
+            <asp:TextBox ID="txtStaffID" runat="server" style="z-index: 3; left: 158px; top: 291px; position: absolute"></asp:TextBox>
+            <asp:TextBox ID="txtFirstName" runat="server" style="z-index: 2; left: 535px; top: 142px; position: absolute"></asp:TextBox>
+            <asp:TextBox ID="txtLastName" runat="server" style="z-index: 2; left: 535px; top: 201px; position: absolute"></asp:TextBox>
+            <asp:TextBox ID="txtPhoneNo" runat="server" style="z-index: 2; left: 533px; top: 268px; position: absolute"></asp:TextBox>
+            <asp:TextBox ID="txtDepartment" runat="server" style="z-index: 2; left: 533px; top: 335px; position: absolute"></asp:TextBox>
+            <asp:TextBox ID="txtDateAdded" runat="server" style="z-index: 2; left: 533px; top: 405px; position: absolute"></asp:TextBox>
+            <asp:CheckBox ID="Active" runat="server" Font-Names="Franklin Gothic Demi" style="position: absolute; z-index: 2; left: 393px; top: 77px" Text="Active" />
+            <asp:Label ID="lblError" runat="server" Font-Names="Franklin Gothic Demi" style="z-index: 2; left: 26px; top: 480px; position: absolute"></asp:Label>
+            <asp:Button ID="btnOk" runat="server" Font-Names="Franklin Gothic Demi" style="z-index: 2; left: 460px; top: 461px; position: absolute; width: 69px; height: 27px;" Text="OK" />
+            <asp:Button ID="btnCancel" runat="server" Font-Names="Franklin Gothic Demi" style="z-index: 2; left: 567px; top: 460px; position: absolute; width: 69px" Text="Cancel" />
+            <asp:Button ID="btnFind" runat="server" Font-Names="Franklin Gothic Demi" style="z-index: 3; left: 182px; top: 333px; position: absolute" Text="Find" Width="69px" />
+            <asp:Label ID="lblFirstName" runat="server" Font-Names="Franklin Gothic Demi" style="z-index: 2; left: 399px; top: 140px; position: absolute" Text="First Name"></asp:Label>
         </asp:Panel>
     </form>
 </body>
