@@ -18,7 +18,10 @@
     <form id="form1" runat="server">
         <div>
             <table class="auto-style1">
-                
+                 <tr>
+                    <td class="auto-style2"><asp:Label ID="Label1" runat="server" Text="ID"></asp:Label></td>
+                    <td><asp:TextBox ID="txt_ID" runat="server"></asp:TextBox></td>
+                </tr>
                 <tr>
                     <td class="auto-style2"><asp:Label ID="Label2" runat="server" Text="VehicleNo"></asp:Label></td>
                     <td><asp:TextBox ID="txt_VehicleNo" runat="server"></asp:TextBox></td>
@@ -41,6 +44,12 @@
                 </tr>
             </table>
         </div>
+        <asp:Button ID="btn_add" runat="server" Text="ADD" Width="75px" />
+        <asp:Button ID="btn_update" runat="server" Text="UPDATE" Width="66px" />
+        <asp:Button ID="btn_delete" runat="server" Text="DELETE" Width="66px" />
+        <asp:Button ID="btn_find" runat="server" Text="FIND" Width="66px" />
+        <br />
+        <td class="auto-style2"><asp:Label ID="lbl_Error" runat="server" Text="Error"></asp:Label></td>
     </form>
 </body>
 </html>

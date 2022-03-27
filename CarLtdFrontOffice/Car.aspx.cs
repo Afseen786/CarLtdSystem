@@ -4,61 +4,48 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using CarLtdClasses;
 
 public partial class Car : System.Web.UI.Page
 {
     Int32 ID;
     protected void Page_Load(object sender, EventArgs e)
     {
-        //get the customer id from the session object 
-        CustomerID = Convert.ToInt32(Session["CustomerID"]);
-        if (IsPostBack == false)
-        {
-
-            //if the customerID is not -1 then display the data from the record 
-            if (CustomerID != -1)
-            {
-                //display the data for this customer
-                DisplayCustomers();
-            }
-            else //this is a new record
-            {
-                //set the date to todays date 
-                txtDateOfBirth.Text = DateTime.Today.Date.ToString("dd/MM/yyyy");
-            }
-        }
+        //get the Car id from the session object 
+        ID = Convert.ToInt32(Session["ID"]);
+        
+                DisplayCars();
+      
     }
-    void DisplayCustomers()
+    void DisplayCars()
     {
-        //create an instance of the customer book
-        clsCustomerCollection CustomerBook = new clsCustomerCollection();
+        //create an instance of the Car book
+        clsCarCollection CarBook = new clsCarCollection();
         //find the record to update 
-        CustomerBook.ThisCustomer.Find(CustomerID);
-        //display the first name 
-        txtFirstName.Text = CustomerBook.ThisCustomer.FirstName;
-        //display the last name
-        txtLastName.Text = CustomerBook.ThisCustomer.LastName;
-        //display the Date of birth
-        txtDateOfBirth.Text = CustomerBook.ThisCustomer.DateOfBirth.ToString("dd/MM/yyyy");
-        //display the address
-        txtAddress.Text = CustomerBook.ThisCustomer.Address;
-        //display the postcode
-        txtPostCode.Text = CustomerBook.ThisCustomer.PostCode;
-        //display the phonenumber
-        txtPhoneNumber.Text = CustomerBook.ThisCustomer.PhoneNumber;
-        //display the active state 
-        chkactive.Checked = CustomerBook.ThisCustomer.active;
+        CarBook.ThisCar.Find(ID);
+        //display the VehicleNo 
+        txt_VehicleNo.Text = CarBook.ThisCar.VehicleNo;
+        //display the Model
+        txt_Model.Text = CarBook.ThisCar.Model;
+        
+        //display the EngineType
+        txt_EngineType.Text = CarBook.ThisCar.EngineType;
+        //display the EngineCC
+        txt_EngineCC.Text = CarBook.ThisCar.EngineCC;
+        //display the Color
+        txt_Color.Text = CarBook.ThisCar.Color;
+       
     }
 
-    //event handler for the OK button
-    protected void btnOk_Click(object sender, EventArgs e)
+    //event handler for the add button
+    protected void btn_add_Click(object sender, EventArgs e)
     {
-        if (CustomerID == -1)
+        if (ID == -1)
         {
             //add the new record 
             Add();
             //redirect back to the default page 
-            //Response.Redirect("CustomerDefault.aspx");
+            //Response.Redirect("CarDefault.aspx");
         }
         else
         {
@@ -70,94 +57,90 @@ public partial class Car : System.Web.UI.Page
 
     protected void btnFind_Click(object sender, EventArgs e)
     {
-        //create an instance of the customer class
-        clsCustomer ACustomer = new clsCustomer();
+        //create an instance of the Car class
+        clsCar ACar = new clsCar();
         //variable to store the primary key
-        Int32 CustomerID;
+        Int32 ID;
         //variable to store the result of the find operation
         Boolean Found = false;
         //get the primary key entered by user
-        CustomerID = Convert.ToInt32(txtCustomerID.Text);
+        ID = Convert.ToInt32(txt_ID.Text);
         //find the record
-        Found = ACustomer.Find(CustomerID);
+        Found = ACar.Find(ID);
         //if found
         if (Found == true)
         {
             //display the values of the properties in the form
-            txtFirstName.Text = ACustomer.FirstName;
-            txtLastName.Text = ACustomer.LastName;
-            txtDateOfBirth.Text = ACustomer.DateOfBirth.ToString();
-            txtAddress.Text = ACustomer.Address;
-            txtPostCode.Text = ACustomer.PostCode;
-            txtPhoneNumber.Text = ACustomer.PhoneNumber;
+            txt_VehicleNo.Text = ACar.VehicleNo;
+            txt_Model.Text = ACar.Model;
+            
+            txt_EngineType.Text = ACar.EngineType;
+            txt_EngineCC.Text = ACar.EngineCC;
+            txt_Color.Text = ACar.Color;
 
         }
     }
     //function for adding new records
     void Add()
     {
-        //create an instance of this customer book
-        CarLtdClasses.clsCustomerCollection CustomerBook = new CarLtdClasses.clsCustomerCollection();
+        //create an instance of this Car book
+        CarLtdClasses.clsCarCollection CarBook = new CarLtdClasses.clsCarCollection();
         //validate the data on the web form
-        string Error = CustomerBook.ThisCustomer.Valid(txtFirstName.Text, txtLastName.Text, txtDateOfBirth.Text, txtAddress.Text, txtPostCode.Text, txtPhoneNumber.Text);
+        string Error = CarBook.ThisCar.Valid(txt_VehicleNo.Text, txt_Model.Text, txt_EngineType.Text, txt_EngineCC.Text, txt_Color.Text);
         //if the data is OK then add it to the object
         if (Error == "")
         {
             //get the data entered by the user
-            CustomerBook.ThisCustomer.FirstName = txtFirstName.Text;
-            CustomerBook.ThisCustomer.LastName = txtLastName.Text;
-            CustomerBook.ThisCustomer.DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text);
-            CustomerBook.ThisCustomer.Address = txtAddress.Text;
-            CustomerBook.ThisCustomer.PostCode = txtPostCode.Text;
-            CustomerBook.ThisCustomer.PhoneNumber = txtPhoneNumber.Text;
-            CustomerBook.ThisCustomer.active = chkactive.Checked;
+            CarBook.ThisCar.VehicleNo = txt_VehicleNo.Text;
+            CarBook.ThisCar.Model = txt_Model.Text;
+            
+            CarBook.ThisCar.EngineType = txt_EngineType.Text;
+            CarBook.ThisCar.EngineCC = txt_EngineCC.Text;
+            CarBook.ThisCar.Color = txt_Color.Text;
+           
             //add the record 
-            CustomerBook.Add();
+            CarBook.Add();
             //all done so redirect back to the main page
-            Response.Redirect("CustomerDefault.aspx");
+            Response.Redirect("CarDefault.aspx");
         }
         else
         {
             //report an error 
-            lblError.Text = "There were problems with the data entered" + Error;
+            lbl_Error.Text = "There were problems with the data entered" + Error;
         }
     }
     //function for updating records
     void Update()
     {
-        //create an instance of the customer book
-        CarLtdClasses.clsCustomerCollection CustomerBook = new CarLtdClasses.clsCustomerCollection();
+        //create an instance of the Car book
+        CarLtdClasses.clsCarCollection CarBook = new CarLtdClasses.clsCarCollection();
         //validate the data on the web form
-        string Error = CustomerBook.ThisCustomer.Valid(txtFirstName.Text, txtLastName.Text, txtDateOfBirth.Text, txtAddress.Text, txtPostCode.Text, txtPhoneNumber.Text);
+        string Error = CarBook.ThisCar.Valid(txt_VehicleNo.Text, txt_Model.Text, txt_EngineType.Text, txt_EngineCC.Text, txt_Color.Text);
         //if the data is OK then add it to the object
         if (Error == "")
         {
             //find the record to update 
-            CustomerBook.ThisCustomer.Find(CustomerID);
+            CarBook.ThisCar.Find(ID);
             //get the data entered by the user
-            CustomerBook.ThisCustomer.FirstName = txtFirstName.Text;
-            CustomerBook.ThisCustomer.LastName = txtLastName.Text;
-            CustomerBook.ThisCustomer.DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text);
-            CustomerBook.ThisCustomer.Address = txtAddress.Text;
-            CustomerBook.ThisCustomer.PostCode = txtPostCode.Text;
-            CustomerBook.ThisCustomer.PhoneNumber = txtPhoneNumber.Text;
-            CustomerBook.ThisCustomer.active = chkactive.Checked;
+            CarBook.ThisCar.VehicleNo = txt_VehicleNo.Text;
+            CarBook.ThisCar.Model = txt_Model.Text;
+
+            CarBook.ThisCar.EngineType = txt_EngineType.Text;
+            CarBook.ThisCar.EngineCC = txt_EngineCC.Text;
+            CarBook.ThisCar.Color = txt_Color.Text;
+
             //add the record 
-            CustomerBook.Update();
+            CarBook.Update();
             //all done so redirect back to the main page
-            Response.Redirect("CustomerDefault.aspx");
+            Response.Redirect("CarDefault.aspx");
         }
         else
         {
             //report an error 
-            lblError.Text = "There were problems with the data entered" + Error;
+            lbl_Error.Text = "There were problems with the data entered" + Error;
         }
     }
 
-    protected void btnCancel_Click(object sender, EventArgs e)
-    {
-        //this line of code redirect back to the customer default page 
-        Response.Redirect("CustomerDefault.aspx");
-    }
+    
 }
 }
